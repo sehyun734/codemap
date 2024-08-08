@@ -17,3 +17,13 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.errors {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  gap: 8px;
+  justify-content: center;
+}

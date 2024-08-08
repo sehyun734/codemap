@@ -117,7 +117,7 @@ export const useMonacoUpdate = (
   // Monaco 에디터 업데이트 핸들러
   const handleUpdateMonaco = useCallback(() => {
     const { monaco, editor } = useMonacoStore.getState()
-    const { setEditorText } = useDiagramStore.getState()
+    const { setEditorText, setErrors } = useDiagramStore.getState()
 
     if (!editor || !monaco) return
 
@@ -133,6 +133,7 @@ export const useMonacoUpdate = (
     } = parseText(value)
 
     setEditorText(value)
+    setErrors(errors)
 
     if (isSuccess) {
       updateNodesAndConnections(newNodes, newConns)

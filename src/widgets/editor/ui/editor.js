@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import style from './style.module.css'
-import { Handle, HideBtn, Monaco } from '../slice'
+import { ErrorMsg, Handle, HideBtn, Monaco } from '../slice'
 
 export const Editor = React.memo(() => {
   const editorRef = useRef(null)
@@ -18,7 +18,9 @@ export const Editor = React.memo(() => {
           setEditorStyle={setEditorStyle}
         />
       </div>
-      <div className=""></div>
+      <div className={style.errors}>
+        <ErrorMsg />
+      </div>
     </div>
   )
 })

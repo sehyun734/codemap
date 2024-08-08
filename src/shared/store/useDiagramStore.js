@@ -2,7 +2,7 @@ import { create } from 'zustand'
 
 export const useDiagramStore = create((set) => ({
   editorText: `
-  table-1 {
+table-1 {
     content {
         # Lets goooo
 
@@ -18,29 +18,29 @@ export const useDiagramStore = create((set) => ({
     connection {
         table-2 arrow dashed
     }
-  }
+}
 
-  table-2 {
+table-2 {
     content {
         # wellll......
     }
     connection {
         table-1 arrow
     }
-  }
+}
 
-  Lorem-ipsum {
+Lorem-ipsum {
     content {
-          **Lorem Ipsum** is simply dummy text of the printing and typesetting industry.
-          Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-          when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        **Lorem Ipsum** is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
     }
     connection {
         table-1 arrow
     }
-  }
+}
 
-  hello-world! {
+hello-world! {
     content {
         # 반가우이
 
@@ -57,18 +57,20 @@ export const useDiagramStore = create((set) => ({
     connection {
         table-1 arrow,
     }
-  }
+}
 
-  그레고리 {
+그레고리 {
     content {
         lets gooooooooo
     }
-  }
+}
   `,
-  setEditorText: (newEditorText) => set({ editorText: newEditorText }),
 
-  error: [],
-  setError: (newError) => set({ error: newError }),
+  setEditorText: (newEditorText) =>
+    set((state) => ({ editorText: newEditorText })),
+
+  errors: [],
+  setErrors: (newErrors) => set((state) => ({ errors: newErrors })),
 
   nodes: {
     'table-1': {

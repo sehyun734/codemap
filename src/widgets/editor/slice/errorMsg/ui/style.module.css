@@ -1,0 +1,12 @@
+.error {
+  background-color: rgba(var(--root-color-5-rgb), 0.9);
+  color: var(--root-color-4);
+  border: 1px solid var(--root-color-4);
+  border-radius: 3px;
+  padding: 10px;
+  width: fit-content;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
