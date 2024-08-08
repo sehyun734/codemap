@@ -1,8 +1,8 @@
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 import style from './style.module.css'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export const ErrorMsg = () => {
+export const ErrorMsg = React.memo(({ editorStyleDisplay }) => {
   const [isDelay, setIsDelay] = useState(true)
   const errors = useDiagramStore((state) => state.errors)
 
@@ -15,7 +15,7 @@ export const ErrorMsg = () => {
     return () => clearTimeout(timer)
   }, [errors])
 
-  if (isDelay) {
+  if (isDelay || editorStyleDisplay === 'none') {
     return null
   }
 
@@ -33,4 +33,4 @@ export const ErrorMsg = () => {
       })}
     </>
   )
-}
+})

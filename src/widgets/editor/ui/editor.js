@@ -19,7 +19,7 @@ export const Editor = React.memo(() => {
         />
       </div>
       <div className={style.errors}>
-        <ErrorMsg />
+        <ErrorMsg editorStyleDisplay={editorStyle.display} />
       </div>
     </div>
   )
