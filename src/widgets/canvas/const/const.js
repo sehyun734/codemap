@@ -10,9 +10,9 @@ export const CONST = {
   MAX_OPACITY: 50,
   MIN_OPACITY: 2,
 
-  CONN_WIDTH: 3,
+  CONN_WIDTH: 2,
   ARROW_SIZE: 10,
-  CONN_SPACE: 22,
+  CONN_SPACE: 33,
 
-  NODE_SPACE: 66,
+  NODE_SPACE: 99,
 }

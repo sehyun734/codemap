@@ -1,0 +1,10 @@
+.bar {
+  height: 100%;
+  width: 6px;
+  cursor: ew-resize;
+  background-color: var(--root-black-2);
+
+  &:active {
+    cursor: ew-resize;
+  }
+}

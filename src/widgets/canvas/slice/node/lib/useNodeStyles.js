@@ -10,7 +10,6 @@ export const useNodeStyles = (
   contentRef
 ) => {
   const [containerStyle, setContainerStyle] = useState({})
-  const [labelStyle, setLabelStyle] = useState({})
   const [contentStyle, setContentStyle] = useState({})
 
   const handleStyle = useCallback(() => {
@@ -58,5 +57,5 @@ export const useNodeStyles = (
     handleStyle()
   }, [handleStyle])
 
-  return { containerStyle, labelStyle, contentStyle }
+  return { containerStyle, contentStyle }
 }

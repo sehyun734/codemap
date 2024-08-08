@@ -16,24 +16,17 @@
   color: var(--root-white-1);
 
   & svg {
+    width: 24px;
+    height: 24px;
     fill: var(--root-white-1);
   }
 }
 
 .animation {
-  transition: all 0.2s ease;
-
   &:hover {
-    transform: scale(1.1);
-    background-color: var(--root-primary-1);
-    color: var(--root-white-1);
-
-    & svg {
-      fill: var(--root-white-1);
-    }
+    filter: brightness(1.5);
   }
   &:active {
-    transform: scale(1);
     filter: brightness(0.6);
   }
 }

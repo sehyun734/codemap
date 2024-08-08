@@ -78,7 +78,7 @@ export const useConnectionStyles = (
       left: `${newStartX}px`,
       width: `${shortenedLength}px`,
       transform: `rotate(${angle * (180 / Math.PI)}deg) ${
-        isInteractive ? 'translateY(150%)' : ''
+        isInteractive ? 'translateY(400%)' : ''
       }`,
       borderStyle: connection.style || 'solid',
       borderWidth: `${CONST.CONN_WIDTH}px`,

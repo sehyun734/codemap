@@ -28,7 +28,7 @@ export const Canvas = React.memo(() => {
             key={`${node.label}-${node.content}`}
             node={node}
             zIndex={zIndex[node.label]}
-            zIndexHandler={handleZIndexMaximize}
+            handleZIndexMaximize={handleZIndexMaximize}
           />
         ))}
         {Object.entries(connections).map(([key, connection]) => (

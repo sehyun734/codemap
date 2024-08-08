@@ -3,23 +3,23 @@ import style from './style.module.css'
 import { useNodeStyles } from '../lib/useNodeStyles'
 import { useNodeEvents } from '../lib/useNodeEvents'
 
-export const Node = React.memo(({ node, zIndexHandler, zIndex }) => {
+export const Node = React.memo(({ node, handleZIndexMaximize, zIndex }) => {
   const containerRef = useRef(null)
   const labelRef = useRef(null)
   const contentRef = useRef(null)
 
-  const { containerStyle, labelStyle, contentStyle } = useNodeStyles(
+  const { containerStyle, contentStyle } = useNodeStyles(
     node,
     zIndex,
     containerRef,
     labelRef,
     contentRef
   )
-  useNodeEvents(containerRef, node, zIndexHandler)
+  useNodeEvents(containerRef, node, handleZIndexMaximize)
 
   return (
     <span className={style.container} ref={containerRef} style={containerStyle}>
-      <span className={style.label} ref={labelRef} style={labelStyle}>
+      <span className={style.label} ref={labelRef}>
         {node.label}
       </span>
       <span

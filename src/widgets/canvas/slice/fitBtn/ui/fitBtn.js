@@ -8,7 +8,7 @@ export const FitBtn = React.memo(() => {
 
   return (
     <shared.Btn onClick={handleFit}>
-      <asset.svg.Fit />
+      <asset.svg.Fit style={{ color: 'white' }} />
     </shared.Btn>
   )
 })

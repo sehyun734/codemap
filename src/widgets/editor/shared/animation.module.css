@@ -1,0 +1,9 @@
+.animation {
+  &:hover {
+    background-color: rgb(39, 129, 255);
+  }
+  &:active {
+    background-color: rgb(39, 129, 255);
+    filter: brightness(0.6);
+  }
+}

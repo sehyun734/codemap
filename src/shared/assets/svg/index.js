@@ -1,42 +1,27 @@
-import React from 'react'
-import Fit from './fit.svg'
-import Arrange from './arrange.svg'
-import ArrowLeft from './arrow-left.svg'
-import ArrowRight from './arrow-right.svg'
-import ArrowUp from './arrow-up.svg'
-import ArrowDown from './arrow-down.svg'
-import Rename from './rename.svg'
-import Trash from './trash.svg'
-import Account from './account.svg'
-import Google from './google.svg'
-import Moon from './moon.svg'
-import Add from './add.svg'
-
-const createSvgComponent = (SvgComponent, name) => {
-  return function SvgIcon({ width = 24, height = 24, ...props }) {
-    return (
-      <img
-        src={SvgComponent}
-        alt={`${name} icon`}
-        width={width}
-        height={height}
-        {...props}
-      />
-    )
-  }
-}
+import { ReactComponent as FitIcon } from './fit.svg'
+import { ReactComponent as ArrangeIcon } from './arrange.svg'
+import { ReactComponent as ArrowLeftIcon } from './arrow-left.svg'
+import { ReactComponent as ArrowRightIcon } from './arrow-right.svg'
+import { ReactComponent as ArrowUpIcon } from './arrow-up.svg'
+import { ReactComponent as ArrowDownIcon } from './arrow-down.svg'
+import { ReactComponent as RenameIcon } from './rename.svg'
+import { ReactComponent as TrashIcon } from './trash.svg'
+import { ReactComponent as AccountIcon } from './account.svg'
+import { ReactComponent as GoogleIcon } from './google.svg'
+import { ReactComponent as MoonIcon } from './moon.svg'
+import { ReactComponent as AddIcon } from './add.svg'
 
 export const svg = {
-  Fit: createSvgComponent(Fit, 'Fit'),
-  Arrange: createSvgComponent(Arrange, 'Arrange'),
-  ArrowDown: createSvgComponent(ArrowDown, 'Arrow Down'),
-  ArrowLeft: createSvgComponent(ArrowLeft, 'Arrow Left'),
-  ArrowRight: createSvgComponent(ArrowRight, 'Arrow Right'),
-  ArrowUp: createSvgComponent(ArrowUp, 'Arrow Up'),
-  Rename: createSvgComponent(Rename, 'Rename'),
-  Trash: createSvgComponent(Trash, 'Trash'),
-  Account: createSvgComponent(Account, 'Account'),
-  Google: createSvgComponent(Google, 'Google'),
-  Moon: createSvgComponent(Moon, 'Moon'),
-  Add: createSvgComponent(Add, 'Add'),
+  Fit: FitIcon,
+  Arrange: ArrangeIcon,
+  ArrowDown: ArrowDownIcon,
+  ArrowLeft: ArrowLeftIcon,
+  ArrowRight: ArrowRightIcon,
+  ArrowUp: ArrowUpIcon,
+  Rename: RenameIcon,
+  Trash: TrashIcon,
+  Account: AccountIcon,
+  Google: GoogleIcon,
+  Moon: MoonIcon,
+  Add: AddIcon,
 }

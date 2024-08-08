@@ -10,11 +10,11 @@
 }
 .line::after {
   box-sizing: border-box;
-  content: "";
+  content: '';
   position: absolute;
   width: 8px;
-  height: 3px;
-  border-top: 3px solid var(--theme-bgOpposite);
+  height: 2px;
+  border-top: 2px solid var(--theme-bgOpposite);
   border-left-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
@@ -25,11 +25,11 @@
 }
 .line::before {
   box-sizing: border-box;
-  content: "";
+  content: '';
   position: absolute;
   width: 8px;
-  height: 3px;
-  border-top: 3px solid var(--theme-bgOpposite);
+  height: 2px;
+  border-top: 2px solid var(--theme-bgOpposite);
   border-left-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
@@ -49,24 +49,24 @@
 }
 
 .arrow::after {
-  content: "";
+  content: '';
   position: absolute;
-  height: 23px;
-  width: 3px;
-  left: -5px;
-  top: -9px;
+  height: 35px;
+  width: 2px;
+  left: -10px;
+  top: -14.5px;
   transform: rotate(55deg);
   transform-origin: 100% 100%;
   border-radius: 20px;
   background-color: inherit;
 }
 .arrow::before {
-  content: "";
+  content: '';
   position: absolute;
-  height: 23px;
-  width: 3px;
-  left: -5px;
-  bottom: -9px;
+  height: 35px;
+  width: 2px;
+  left: -10px;
+  bottom: -14.5px;
   transform: rotate(-55deg);
   transform-origin: 100% 0;
   border-radius: 20px;

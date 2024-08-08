@@ -1,0 +1,21 @@
+.wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.textarea {
+  width: 350px;
+  height: 100%;
+}
+
+.side {
+  position: absolute;
+  left: calc(100%);
+  top: 0;
+  height: 100%;
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

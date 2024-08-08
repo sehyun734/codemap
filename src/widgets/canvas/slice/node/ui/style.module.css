@@ -70,12 +70,12 @@
 }
 
 .content strong {
-  background-color: #e9ff97;
+  background-color: var(--root-color-1);
   color: var(--root-black-1);
   margin-left: 2px;
   margin-right: 2px;
   padding: 0 2px;
-  border-radius: 5px;
+  border-radius: 3px;
   font-weight: 500;
 }
 
@@ -103,15 +103,7 @@
   background-color: var(--theme-point);
   margin: 0 3px;
   padding: 2px 4px;
-  border-radius: 5px;
-}
-
-.content img {
-  display: block;
-  margin: 14px auto;
-  border-radius: 7px;
-  width: 100%;
-  max-width: 225px;
+  border-radius: 3px;
 }
 
 .content ul {
@@ -126,7 +118,7 @@
 }
 
 .content blockquote {
-  border-radius: 7px;
+  border-radius: 3px;
   position: relative;
   line-height: 110%;
   padding: 0 20px;
@@ -140,9 +132,9 @@
   top: 0;
   width: 4px;
   height: 100%;
-  background-color: var(--root-primary-1);
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
+  background-color: var(--root-color-1);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .content hr {
@@ -153,7 +145,7 @@
 
 .content table {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 3px;
   border-collapse: separate;
   background-color: var(--theme-point);
 }
@@ -163,41 +155,37 @@
 }
 
 .content thead > :first-child > th:first-child {
-  border-top-left-radius: 7px;
+  border-top-left-radius: 3px;
 }
 
 .content thead > :first-child > th:last-child {
-  border-top-right-radius: 7px;
+  border-top-right-radius: 3px;
 }
 
 .content tbody > :last-child > td:first-child {
-  border-bottom-left-radius: 7px;
+  border-bottom-left-radius: 3px;
 }
 
 .content tbody > :last-child > td:last-child {
-  border-bottom-right-radius: 7px;
+  border-bottom-right-radius: 3px;
 }
 
-.content td,
-.content th {
+.content td {
   box-sizing: border-box;
   padding: 4px 12px;
-  border: 1px solid var(--theme-bgOpposite);
-  border-bottom: 0px;
-  border-right: 0px;
+  border-left: 1px solid var(--theme-bgOpposite);
 }
 
 .content th {
-  border-bottom: 2px solid var(--theme-bgOpposite);
-}
-
-.content tr:last-child td {
   border-bottom: 1px solid var(--theme-bgOpposite);
+  border-left: 1px solid var(--theme-bgOpposite);
+  box-sizing: border-box;
+  padding: 4px 12px;
 }
 
-.content th:last-child,
-.content tr > td:last-child {
-  border-right: 1px solid var(--theme-bgOpposite);
+.content tr > td:first-child,
+.content tr > th:first-child {
+  border-left: none;
 }
 
 .content tr:nth-child(2n + 0) {
@@ -206,7 +194,7 @@
 
 .content a {
   cursor: pointer;
-  color: var(--root-primary-1);
+  color: var(--root-color-1);
   padding: 0 3px;
   display: inline-block;
   text-decoration: underline;
@@ -251,14 +239,15 @@
 
 .content input[type='checkbox']:checked {
   pointer-events: none;
-  background-color: var(--root-primary-3);
+  border: none;
+  background-color: var(--root-color-4);
 }
 
 .content input[type='checkbox']:checked::after {
   content: '✓';
   display: inline-block;
   font-size: 18px;
-  color: var(--root-black-1);
+  color: var(--root-white-1);
   position: relative;
   top: 2px;
 }

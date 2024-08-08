@@ -1,23 +1,26 @@
 :root {
-  --root-primary-1: #ef5a6f;
-  --root-primary-1-rgb: 239, 90, 111;
+  --root-color-1: #fdf3aa;
+  --root-color-1-rgb: 239, 90, 111;
 
-  --root-primary-2: #f7f0e5;
-  --root-primary-2-rgb: 247, 240, 229;
+  --root-color-2: #ff8c87;
+  --root-color-2-rgb: 212, 189, 172;
 
-  --root-primary-3: #d4bdac;
-  --root-primary-3-rgb: 212, 189, 172;
+  --root-color-3: #a8c7fa;
+  --root-color-3-rgb: 212, 189, 172;
 
-  --root-white-1: #e0e5eb;
+  --root-color-4: #417ad8;
+  --root-color-4-rgb: 212, 189, 172;
+
+  --root-white-1: #e6e6e6;
   --root-white-1-rgb: 223, 228, 234;
 
   --root-black-1: #33353a;
   --root-black-1-rgb: 51, 53, 58;
 
-  --root-black-2: #202124;
+  --root-black-2: #1b1d1e;
   --root-black-2-rgb: 32, 33, 36;
 
-  --root-black-3: #1b1c1c;
+  --root-black-3: #1b1d1e;
   --root-black-3-rgb: 27, 28, 28;
 
   --theme-bgOpposite: #e6e6e6;
@@ -26,42 +29,96 @@
   --theme-bg: #141414;
   --theme-bg-rgb: 88, 91, 102;
 
-  --theme-node: #151515;
+  --theme-node: #1b1d1e;
   --theme-node-rgb: 32, 33, 36;
 
-  --theme-point: #33353a;
+  --theme-point: #2e3034;
   --theme-point-rgb: 51, 53, 58;
 }
 
-.dark {
-  --theme-bgOpposite: #e0e5eb;
-  --theme-bgOpposite-rgb: 223, 228, 234;
-
-  --theme-bg: #2f2f2f;
-  --theme-bg-rgb: 88, 91, 102;
-
-  --theme-node: #1e1e1e;
-  --theme-node-rgb: 32, 33, 36;
-
-  --theme-point: #33353a;
-  --theme-point-rgb: 51, 53, 58;
+@font-face {
+  font-family: 'Source Code Pro';
+  font-style: normal;
+  src: url('../shared/assets/font/Source_Code_Pro/SourceCodePro-VariableFont_wght.ttf');
 }
-
-.light {
-  --theme-bgOpposite: #383b3b;
-  --theme-bgOpposite-rgb: 56, 59, 59;
-
-  --theme-bg: #cad3db;
-  --theme-bg-rgb: 204, 210, 216;
-
-  --theme-node: #e0e5eb;
-  --theme-node-rgb: 223, 228, 234;
-
-  --theme-point: #ced9df;
-  --theme-point-rgb: 199, 210, 215;
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../shared/assets/font/Roboto/Roboto-Thin.ttf');
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../shared/assets/font/Roboto/Roboto-Regular.ttf');
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../shared/assets/font/Roboto/Roboto-Medium.ttf');
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../shared/assets/font/Roboto/Roboto-Bold.ttf');
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../shared/assets/font/Roboto/Roboto-Black.ttf');
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
+    U+005B-0060, U+007B-007E;
+}
+@font-face {
+  font-family: 'Noto_Sans_KR';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Light.ttf');
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+@font-face {
+  font-family: 'Noto_Sans_KR';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf');
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+@font-face {
+  font-family: 'Noto_Sans_KR';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Medium.ttf');
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+@font-face {
+  font-family: 'Noto_Sans_KR';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-SemiBold.ttf');
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
+}
+@font-face {
+  font-family: 'Noto_Sans_KR';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Bold.ttf');
+  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
 }
 
 * {
+  font-family: 'Noto_Sans_KR', 'Roboto', sans-serif;
   border: none;
   margin: 0;
   padding: 0;

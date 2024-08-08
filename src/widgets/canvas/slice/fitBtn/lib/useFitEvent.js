@@ -29,7 +29,7 @@ export const useFitEvent = () => {
     const centerY = (minY + maxY) / 2 || 0
 
     setScreenPosition({
-      x: scrWidth / 2 - centerX * screenScale + 4, // editorHandle width / 2
+      x: scrWidth / 2 - centerX * screenScale + 3, // editorHandle width / 2
       y: scrHeight / 2 - centerY * screenScale,
     })
   }, [calculateMinMax])
