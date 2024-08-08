@@ -1,6 +1,7 @@
 .wrapper {
   position: relative;
   z-index: 1;
+  display: flex;
 }
 
 .textarea {
@@ -9,10 +10,7 @@
 }
 
 .side {
-  position: absolute;
-  left: 100%;
-  bottom: 0;
-  height: calc(100% - 40px);
+  height: 100%;
   display: flex;
   -webkit-user-select: none;
   -moz-user-select: none;

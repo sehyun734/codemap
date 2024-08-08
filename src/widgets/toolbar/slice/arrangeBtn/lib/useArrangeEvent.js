@@ -39,7 +39,7 @@ export const useArrangeEvent = () => {
 
     // 화면 중앙에 맞추기
     setScreenPosition({
-      x: screenWidth / 2 + 3, // editorHandle width / 2
+      x: screenWidth / 2,
       y: screenHeight / 2 - (maxHeight * screenScale) / 2,
     })
   }, [getDimensions])
