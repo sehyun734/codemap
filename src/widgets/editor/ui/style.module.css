@@ -25,5 +25,11 @@
   flex-direction: column;
   padding: 8px;
   gap: 8px;
-  justify-content: center;
+  max-height: 150px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.errors::-webkit-scrollbar {
+  display: none;
 }
