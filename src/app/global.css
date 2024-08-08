@@ -1,52 +1,52 @@
 :root {
   --root-color-1: #f6b194;
-  --root-color-1-rgb: 239, 90, 111;
+  --root-color-1-rgb: 246, 177, 148;
 
   --root-color-2: #1861ff;
-  --root-color-4-rgb: 212, 189, 172;
+  --root-color-2-rgb: 24, 97, 255;
 
   --root-color-3: #a8c7fa;
-  --root-color-3-rgb: 212, 189, 172;
+  --root-color-3-rgb: 168, 199, 250;
 
   --root-white-1: #e9ecf1;
-  --root-white-1-rgb: 223, 228, 234;
+  --root-white-1-rgb: 233, 236, 241;
 
   --root-black-1: #141414;
-  --root-black-1-rgb: 51, 53, 58;
+  --root-black-1-rgb: 20, 20, 20;
 
   --root-black-2: #1b1d1e;
-  --root-black-2-rgb: 32, 33, 36;
+  --root-black-2-rgb: 27, 29, 30;
 
   --root-black-3: #2e3034;
-  --root-black-3-rgb: 27, 28, 28;
+  --root-black-3-rgb: 46, 48, 52;
 }
 
 .light {
   --theme-bgOpposite: #141414;
-  --theme-bgOpposite-rgb: 56, 59, 59;
+  --theme-bgOpposite-rgb: 20, 20, 20;
 
   --theme-bg: #e9ecf1;
-  --theme-bg-rgb: 204, 210, 216;
+  --theme-bg-rgb: 233, 236, 241;
 
   --theme-node: #f2f4f8;
-  --theme-node-rgb: 223, 228, 234;
+  --theme-node-rgb: 242, 244, 248;
 
   --theme-point: #e1e7ec;
-  --theme-point-rgb: 199, 210, 215;
+  --theme-point-rgb: 225, 231, 236;
 }
 
 .dark {
   --theme-bgOpposite: #e9ecf1;
-  --theme-bgOpposite-rgb: 223, 228, 234;
+  --theme-bgOpposite-rgb: 233, 236, 241;
 
   --theme-bg: #141414;
-  --theme-bg-rgb: 88, 91, 102;
+  --theme-bg-rgb: 20, 20, 20;
 
   --theme-node: #1b1d1e;
-  --theme-node-rgb: 32, 33, 36;
+  --theme-node-rgb: 27, 29, 30;
 
   --theme-point: #2e3034;
-  --theme-point-rgb: 51, 53, 58;
+  --theme-point-rgb: 46, 48, 52;
 }
 
 @font-face {
