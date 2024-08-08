@@ -9,19 +9,15 @@
 }
 
 .label {
-  box-sizing: border-box;
   position: absolute;
-  font-size: 10px;
+  font-size: 14px;
   z-index: -1;
-  bottom: calc(100% - 1px);
-  padding: 5px 15px;
+  bottom: 100%;
+  margin: 4px;
   white-space: nowrap;
-  text-align: center;
-  background-color: var(--theme-bgOpposite);
-  color: var(--theme-node);
-  font-weight: 600;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  color: var(--theme-bgOpposite);
+  opacity: 0.6;
+  font-weight: 700;
 }
 
 .content {
@@ -36,9 +32,7 @@
   color: var(--theme-bgOpposite);
 
   border: 1px solid var(--theme-bgOpposite);
-
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 2px;
 }
 
 .content > * {
@@ -75,7 +69,7 @@
   margin-left: 2px;
   margin-right: 2px;
   padding: 0 2px;
-  border-radius: 3px;
+  border-radius: 2px;
   font-weight: 500;
 }
 
@@ -88,7 +82,7 @@
 }
 
 .content pre {
-  border-radius: 7px;
+  border-radius: 2px;
   padding: 25px 20px;
   background-color: var(--theme-point);
 }
@@ -103,7 +97,7 @@
   background-color: var(--theme-point);
   margin: 0 3px;
   padding: 2px 4px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .content ul {
@@ -118,7 +112,7 @@
 }
 
 .content blockquote {
-  border-radius: 3px;
+  border-radius: 2px;
   position: relative;
   line-height: 110%;
   padding: 0 20px;
@@ -130,7 +124,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  width: 4px;
+  width: 2px;
   height: 100%;
   background-color: var(--root-color-1);
   border-top-left-radius: 3px;
@@ -145,7 +139,7 @@
 
 .content table {
   width: 100%;
-  border-radius: 3px;
+  border-radius: 2px;
   border-collapse: separate;
   background-color: var(--theme-point);
 }
@@ -194,11 +188,10 @@
 
 .content a {
   cursor: pointer;
-  color: var(--root-color-1);
+  color: var(--root-color-4);
   padding: 0 3px;
   display: inline-block;
   text-decoration: underline;
-  transition: transform 0.3s ease;
 }
 
 .content a::before {
@@ -206,11 +199,10 @@
   width: 100%;
   font-size: 12px;
   padding-right: 5px;
-  transition: transform 0.3s ease;
 }
 
 .content a:hover {
-  transform: translateY(-5px);
+  filter: brightness(1.5);
 }
 
 .content input[type='checkbox'] {
@@ -226,7 +218,7 @@
   background-color: var(--theme-bg);
   border: 1px solid rgba(var(--theme-bgOpposite-rgb), 0.4);
   overflow: hidden;
-  border-radius: 3.5px;
+  border-radius: 2px;
 }
 
 .content input[type='checkbox']:disabled::after {
@@ -234,7 +226,6 @@
   display: inline-block;
   font-size: 18px;
   position: relative;
-  top: 2px;
 }
 
 .content input[type='checkbox']:checked {

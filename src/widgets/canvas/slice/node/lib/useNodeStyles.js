@@ -29,11 +29,6 @@ export const useNodeStyles = (
       roundToGrid(labelRef.current.offsetWidth)
     )
 
-    const radiusDiff = Math.max(
-      0,
-      Math.min(contentWidth - labelRef.current.offsetWidth, 5)
-    )
-
     // 노드 크기가 변경된 경우 전역상태 업데이트
     if (node.size?.width !== maxWidth || node.size?.height !== contentHeight) {
       updateNode({ ...node, size: { width: maxWidth, height: contentHeight } })
@@ -48,7 +43,6 @@ export const useNodeStyles = (
     })
     setContentStyle({
       height: contentHeight,
-      borderTopRightRadius: radiusDiff,
     })
   }, [node, zIndex])
 
