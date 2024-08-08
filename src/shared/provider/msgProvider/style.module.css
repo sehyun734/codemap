@@ -1,0 +1,30 @@
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.msg {
+  position: fixed;
+  top: 15%;
+  left: 50vw;
+  z-index: 100;
+  color: var(--root-white-1);
+  transform: translate(-50%, -50%);
+  background-color: var(--root-color-1);
+  padding: 15px;
+  border-radius: 7px;
+  font-size: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  animation: fadeOut 2s ease-out forwards;
+}
