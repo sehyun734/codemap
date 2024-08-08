@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
-import { CONST } from '../../../const/const'
+import { CONST } from 'shared/const/const'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 
 export const useNodeEvents = (containerRef, node, handleZIndexMaximize) => {

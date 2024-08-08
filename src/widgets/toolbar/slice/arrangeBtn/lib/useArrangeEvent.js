@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { CONST } from '../../../const/const'
+import { CONST } from 'shared/const/const'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 
 export const useArrangeEvent = () => {

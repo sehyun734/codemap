@@ -1,5 +1,5 @@
-import { useRef, useCallback, useEffect } from "react"
-import { CONST } from "../../../const/const"
+import { useRef, useCallback, useEffect } from 'react'
+import { CONST } from 'shared/const/const'
 
 export const useHandleEvents = (textareaRef, setTextareaStyle, handleRef) => {
   const isDragging = useRef(false)
@@ -11,7 +11,7 @@ export const useHandleEvents = (textareaRef, setTextareaStyle, handleRef) => {
       isDragging.current = true
       startX.current = e.clientX
       startWidth.current = textareaRef.current.getBoundingClientRect().width
-      document.body.style.cursor = "ew-resize"
+      document.body.style.cursor = 'ew-resize'
     },
     [textareaRef]
   )
@@ -25,8 +25,11 @@ export const useHandleEvents = (textareaRef, setTextareaStyle, handleRef) => {
 
       setTextareaStyle((prev) => ({
         ...prev,
-        width: Math.min(CONST.MAX_EDITOR_WIDTH, Math.max(CONST.MIN_EDITOR_WIDTH, newWidth)),
-        display: newWidth < CONST.MIN_EDITOR_WIDTH / 2 ? "none" : "",
+        width: Math.min(
+          CONST.MAX_EDITOR_WIDTH,
+          Math.max(CONST.MIN_EDITOR_WIDTH, newWidth)
+        ),
+        display: newWidth < CONST.MIN_EDITOR_WIDTH / 2 ? 'none' : '',
       }))
     },
     [setTextareaStyle]
@@ -34,18 +37,18 @@ export const useHandleEvents = (textareaRef, setTextareaStyle, handleRef) => {
 
   const handleMouseUp = useCallback(() => {
     isDragging.current = false
-    document.body.style.cursor = ""
+    document.body.style.cursor = ''
   }, [])
 
   useEffect(() => {
-    handleRef.current?.addEventListener("mousedown", handleMouseDown)
-    document.addEventListener("mousemove", handleMouseMove)
-    document.addEventListener("mouseup", handleMouseUp)
+    handleRef.current?.addEventListener('mousedown', handleMouseDown)
+    document.addEventListener('mousemove', handleMouseMove)
+    document.addEventListener('mouseup', handleMouseUp)
 
     return () => {
-      handleRef.current?.removeEventListener("mousedown", handleMouseDown)
-      document.removeEventListener("mousemove", handleMouseMove)
-      document.removeEventListener("mouseup", handleMouseUp)
+      handleRef.current?.removeEventListener('mousedown', handleMouseDown)
+      document.removeEventListener('mousemove', handleMouseMove)
+      document.removeEventListener('mouseup', handleMouseUp)
     }
   }, [handleMouseMove, handleMouseUp])
 

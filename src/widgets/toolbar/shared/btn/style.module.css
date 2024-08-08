@@ -2,29 +2,27 @@
   cursor: pointer;
   box-sizing: border-box;
 
-  width: 55px;
-  height: 55px;
-  padding: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-radius: 50%;
-
-  background-color: var(--root-black-3);
+  background-color: var(--root-black-2);
   color: var(--root-white-1);
 
   & svg {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     fill: var(--root-white-1);
   }
 }
 
 .animation {
   &:hover {
-    filter: brightness(1.5);
+    filter: brightness(2);
   }
   &:active {
     filter: brightness(0.6);

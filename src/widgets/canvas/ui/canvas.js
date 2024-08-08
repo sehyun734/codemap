@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect } from 'react'
-import { ArrangeBtn, Connection, FitBtn, Node, Screen } from '../slice'
+import { Connection, Node, Screen } from '../slice'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 import { useZIndex } from '../lib/useZIndex'
 import { useConnectionInteractivity } from '../lib/useConnectionInteractivity'
@@ -50,10 +50,6 @@ export const Canvas = React.memo(() => {
           />
         ))}
       </Screen>
-      <div className={style.btns}>
-        <FitBtn />
-        <ArrangeBtn />
-      </div>
     </div>
   )
 })

@@ -10,9 +10,9 @@
 
 .side {
   position: absolute;
-  left: calc(100%);
-  top: 0;
-  height: 100%;
+  left: 100%;
+  bottom: 0;
+  height: calc(100% - 40px);
   display: flex;
   -webkit-user-select: none;
   -moz-user-select: none;

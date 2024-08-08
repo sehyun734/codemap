@@ -1,7 +1,7 @@
-import { marked } from "marked"
-import sanitizeHtml from "sanitize-html"
-import { CONST } from "../../../const/const"
-import { sanitizeConfig } from "../config/sanitizeConfig"
+import { marked } from 'marked'
+import sanitizeHtml from 'sanitize-html'
+import { MSG } from 'shared/const/msg'
+import { sanitizeConfig } from '../config/sanitizeConfig'
 
 // 에디터 내용을 파싱하는 메인 함수
 export const parseText = (text) => {
@@ -16,66 +16,86 @@ export const parseText = (text) => {
   let curNode = undefined // 현재 작업중인 node
   let curKeyword = undefined // 현재 작업중인 node의 keyword
 
-  const lines = text.split("\n")
+  const lines = text.split('\n')
 
   const contentHandler = () => {
     const lineDiff = cur.wordRange.begin.y - prev.wordRange.begin.y
 
     // 초기 값일때,
-    if (curNode["content"].data === "") {
-      curNode["content"].data += cur.word
+    if (curNode['content'].data === '') {
+      curNode['content'].data += cur.word
     }
     // 줄바꿈이 되었을때,
     else if (lineDiff > 0) {
-      curNode["content"].data += "\n".repeat(lineDiff) + cur.word
+      curNode['content'].data += '\n'.repeat(lineDiff) + cur.word
     } else {
       // 공백 여부
       const spaceDiff = cur.wordRange.begin.x - prev.wordRange.end.x
-      curNode["content"].data += " ".repeat(spaceDiff) + cur.word
+      curNode['content'].data += ' '.repeat(spaceDiff) + cur.word
     }
   }
 
   const connectionHandler = () => {
-    const lastIndex = curNode["connection"].data.length - 1
+    const lastIndex = curNode['connection'].data.length - 1
 
     // 처음 ,가 나올때
-    if (cur.word === "," && (prev.word === "{" || prev.word === ",")) {
-      errors.push({ message: CONST.ERROR_MSG.COMMA_AFTER_LABEL, wordRange: cur.wordRange })
+    if (cur.word === ',' && (prev.word === '{' || prev.word === ',')) {
+      errors.push({
+        message: MSG.ERROR_MSG.COMMA_AFTER_LABEL,
+        wordRange: cur.wordRange,
+      })
       return
     }
 
     // 처음 나오는 노드 라벨일때,
-    if (cur.word !== "," && (prev.word === "{" || prev.word === ",")) {
+    if (cur.word !== ',' && (prev.word === '{' || prev.word === ',')) {
       // 자기 자신 노드 참조하면 에러
       if (curNode.label === cur.word) {
-        errors.push({ message: CONST.ERROR_MSG.SELF_REFERENCE, wordRange: cur.wordRange })
+        errors.push({
+          message: MSG.ERROR_MSG.SELF_REFERENCE,
+          wordRange: cur.wordRange,
+        })
       }
 
       // 중복된 노드 라벨 참조하면 에러
-      const duplication = curNode["connection"].data.find((connection) => connection.target === cur.word)
+      const duplication = curNode['connection'].data.find(
+        (connection) => connection.target === cur.word
+      )
       if (duplication) {
         errors.push(
-          { message: CONST.ERROR_MSG.DUPLICATE_REFERENCE, wordRange: cur.wordRange },
-          { message: CONST.ERROR_MSG.DUPLICATE_REFERENCE, wordRange: duplication.wordRange }
+          {
+            message: MSG.ERROR_MSG.DUPLICATE_REFERENCE,
+            wordRange: cur.wordRange,
+          },
+          {
+            message: MSG.ERROR_MSG.DUPLICATE_REFERENCE,
+            wordRange: duplication.wordRange,
+          }
         )
       }
 
-      curNode["connection"].data.push({
+      curNode['connection'].data.push({
         target: cur.word,
         wordRange: cur.wordRange,
       })
     }
     // 노드 커넥션 라벨 선언 이후의 옵션들
-    else if (cur.word !== ",") {
-      const lastConnection = curNode["connection"].data[lastIndex]
+    else if (cur.word !== ',') {
+      const lastConnection = curNode['connection'].data[lastIndex]
 
       // 스타일 옵션
-      if (cur.word === "solid" || cur.word === "dashed") {
+      if (cur.word === 'solid' || cur.word === 'dashed') {
         if (lastConnection.style) {
           // 중복된 옵션 추가시 에러
           errors.push(
-            { message: CONST.ERROR_MSG.DUPLICATE_STYLE, wordRange: cur.wordRange },
-            { message: CONST.ERROR_MSG.DUPLICATE_STYLE, wordRange: lastConnection.style.wordRange }
+            {
+              message: MSG.ERROR_MSG.DUPLICATE_STYLE,
+              wordRange: cur.wordRange,
+            },
+            {
+              message: MSG.ERROR_MSG.DUPLICATE_STYLE,
+              wordRange: lastConnection.style.wordRange,
+            }
           )
           return
         }
@@ -85,26 +105,41 @@ export const parseText = (text) => {
       else if (/^#([0-9A-F]{3}){1,2}$/i.test(cur.word)) {
         if (lastConnection.color) {
           errors.push(
-            { message: CONST.ERROR_MSG.DUPLICATE_COLOR, wordRange: cur.wordRange },
-            { message: CONST.ERROR_MSG.DUPLICATE_COLOR, wordRange: lastConnection.color.wordRange }
+            {
+              message: MSG.ERROR_MSG.DUPLICATE_COLOR,
+              wordRange: cur.wordRange,
+            },
+            {
+              message: MSG.ERROR_MSG.DUPLICATE_COLOR,
+              wordRange: lastConnection.color.wordRange,
+            }
           )
           return
         }
         lastConnection.color = { data: cur.word, wordRange: cur.wordRange }
       }
       // 화살표 옵션
-      else if (cur.word === "arrow") {
+      else if (cur.word === 'arrow') {
         if (lastConnection.arrow) {
           errors.push(
-            { message: CONST.ERROR_MSG.DUPLICATE_ARROW, wordRange: cur.wordRange },
-            { message: CONST.ERROR_MSG.DUPLICATE_ARROW, wordRange: lastConnection.arrow.wordRange }
+            {
+              message: MSG.ERROR_MSG.DUPLICATE_ARROW,
+              wordRange: cur.wordRange,
+            },
+            {
+              message: MSG.ERROR_MSG.DUPLICATE_ARROW,
+              wordRange: lastConnection.arrow.wordRange,
+            }
           )
           return
         }
         lastConnection.arrow = { data: true, wordRange: cur.wordRange }
       } else {
         // 해당되는 옵션이 아닐경우 에러
-        errors.push({ message: CONST.ERROR_MSG.INVALID_CONN_OPTION, wordRange: cur.wordRange })
+        errors.push({
+          message: MSG.ERROR_MSG.INVALID_CONN_OPTION,
+          wordRange: cur.wordRange,
+        })
         return
       }
     }
@@ -114,8 +149,11 @@ export const parseText = (text) => {
     const depth = braces.length
 
     // 다음 블록 명시하지 않으면 에러 (실제 keyword 및 label 유효성 검사는 openHandler에서 진행)
-    if (depth < 2 && (!next || next.word !== "{")) {
-      errors.push({ message: CONST.ERROR_MSG.MISSING_OPEN_BRACE, wordRange: cur.wordRange })
+    if (depth < 2 && (!next || next.word !== '{')) {
+      errors.push({
+        message: MSG.ERROR_MSG.MISSING_OPEN_BRACE,
+        wordRange: cur.wordRange,
+      })
       return
     }
 
@@ -124,9 +162,9 @@ export const parseText = (text) => {
       return
     }
 
-    if (curKeyword === "content") {
+    if (curKeyword === 'content') {
       contentHandler()
-    } else if (curKeyword === "connection") {
+    } else if (curKeyword === 'connection') {
       connectionHandler()
     }
   }
@@ -137,8 +175,11 @@ export const parseText = (text) => {
 
     if (depth === 1) {
       // 노드 이름을 선언하지 않으면 에러
-      if (prev === undefined || prev.word === "{" || prev.word === "}") {
-        errors.push({ message: CONST.ERROR_MSG.MISSING_NODE_NAME, wordRange: cur.wordRange })
+      if (prev === undefined || prev.word === '{' || prev.word === '}') {
+        errors.push({
+          message: MSG.ERROR_MSG.MISSING_NODE_NAME,
+          wordRange: cur.wordRange,
+        })
         return
       }
 
@@ -146,8 +187,14 @@ export const parseText = (text) => {
       const duplication = result.find((obj) => obj.label === prev.word)
       if (duplication) {
         errors.push(
-          { message: CONST.ERROR_MSG.DUPLICATE_NODE_NAME, wordRange: prev.wordRange },
-          { message: CONST.ERROR_MSG.DUPLICATE_NODE_NAME, wordRange: duplication.wordRange }
+          {
+            message: MSG.ERROR_MSG.DUPLICATE_NODE_NAME,
+            wordRange: prev.wordRange,
+          },
+          {
+            message: MSG.ERROR_MSG.DUPLICATE_NODE_NAME,
+            wordRange: duplication.wordRange,
+          }
         )
         return
       }
@@ -166,8 +213,11 @@ export const parseText = (text) => {
       }
 
       // 키워드 이름을 선언하지 않으면 에러
-      if (prev === undefined || prev.word === "{" || prev.word === "}") {
-        errors.push({ message: CONST.ERROR_MSG.MISSING_KEYWORD, wordRange: cur.wordRange })
+      if (prev === undefined || prev.word === '{' || prev.word === '}') {
+        errors.push({
+          message: MSG.ERROR_MSG.MISSING_KEYWORD,
+          wordRange: cur.wordRange,
+        })
         return
       }
 
@@ -176,22 +226,28 @@ export const parseText = (text) => {
       if (duplication) {
         delete curNode[prev.word]
         errors.push(
-          { message: CONST.ERROR_MSG.DUPLICATE_KEYWORD, wordRange: prev.wordRange },
-          { message: CONST.ERROR_MSG.DUPLICATE_KEYWORD, wordRange: duplication.wordRange }
+          {
+            message: MSG.ERROR_MSG.DUPLICATE_KEYWORD,
+            wordRange: prev.wordRange,
+          },
+          {
+            message: MSG.ERROR_MSG.DUPLICATE_KEYWORD,
+            wordRange: duplication.wordRange,
+          }
         )
         return
       }
 
-      if (prev.word === "content") {
-        curKeyword = "content"
-        curNode["content"] = {
-          data: "",
+      if (prev.word === 'content') {
+        curKeyword = 'content'
+        curNode['content'] = {
+          data: '',
           braceRange: { open: cur.wordRange, close: undefined },
           wordRange: prev.wordRange,
         }
-      } else if (prev.word === "connection") {
-        curKeyword = "connection"
-        curNode["connection"] = {
+      } else if (prev.word === 'connection') {
+        curKeyword = 'connection'
+        curNode['connection'] = {
           data: [],
           braceRange: { open: cur.wordRange, close: undefined },
           wordRange: prev.wordRange,
@@ -199,7 +255,10 @@ export const parseText = (text) => {
       }
       // 해당되는 keyword가 아니면 에러
       else {
-        errors.push({ message: CONST.ERROR_MSG.INVALID_KEYWORD, wordRange: prev.wordRange })
+        errors.push({
+          message: MSG.ERROR_MSG.INVALID_KEYWORD,
+          wordRange: prev.wordRange,
+        })
         return
       }
     } else if (depth >= 3) {
@@ -209,8 +268,11 @@ export const parseText = (text) => {
       }
 
       // content 키워드 외의 위치에서 사용되면 에러
-      if (curKeyword !== "content") {
-        errors.push({ message: CONST.ERROR_MSG.INVALID_BRACE_LOCATION, wordRange: prev.wordRange })
+      if (curKeyword !== 'content') {
+        errors.push({
+          message: MSG.ERROR_MSG.INVALID_BRACE_LOCATION,
+          wordRange: prev.wordRange,
+        })
         return
       }
 
@@ -221,7 +283,10 @@ export const parseText = (text) => {
   const closeBraceHandler = () => {
     // 여는 중괄호 없이 닫는 중괄호가 먼저 나왔다면 에러
     if (braces.length === 0) {
-      errors.push({ message: CONST.ERROR_MSG.UNMATCHED_CLOSE_BRACE, wordRange: cur.wordRange })
+      errors.push({
+        message: MSG.ERROR_MSG.UNMATCHED_CLOSE_BRACE,
+        wordRange: cur.wordRange,
+      })
       return
     }
 
@@ -237,7 +302,10 @@ export const parseText = (text) => {
       curNode.braceRange.close = cur.wordRange
 
       if (curNode.content) {
-        curNode.content.data = sanitizeHtml(marked.parse(curNode.content.data), sanitizeConfig)
+        curNode.content.data = sanitizeHtml(
+          marked.parse(curNode.content.data),
+          sanitizeConfig
+        )
       }
 
       result.push(curNode)
@@ -259,8 +327,11 @@ export const parseText = (text) => {
       }
 
       // content 키워드 외의 위치에서 사용되면 에러
-      if (curKeyword !== "content") {
-        errors.push({ message: CONST.ERROR_MSG.INVALID_BRACE_LOCATION, wordRange: prev.wordRange })
+      if (curKeyword !== 'content') {
+        errors.push({
+          message: MSG.ERROR_MSG.INVALID_BRACE_LOCATION,
+          wordRange: prev.wordRange,
+        })
         return
       }
 
@@ -270,9 +341,9 @@ export const parseText = (text) => {
 
   // 메인 파서 로직
   const main = () => {
-    if (cur.word === "{") {
+    if (cur.word === '{') {
       openBraceHandler()
-    } else if (cur.word === "}") {
+    } else if (cur.word === '}') {
       closeBraceHandler()
     } else {
       wordHandler()
@@ -287,7 +358,7 @@ export const parseText = (text) => {
 
     for (let i = 0; i < words.length; i++) {
       const word = words[i]
-      if (word === " ") {
+      if (word === ' ') {
         x = x + word.length
         continue
       }
@@ -297,7 +368,7 @@ export const parseText = (text) => {
 
       // next 단어 찾기
       let nextIndex = i + 1
-      while (nextIndex < words.length && words[nextIndex] === " ") {
+      while (nextIndex < words.length && words[nextIndex] === ' ') {
         nextIndex++
       }
       next =
@@ -305,8 +376,20 @@ export const parseText = (text) => {
           ? {
               word: words[nextIndex],
               wordRange: {
-                begin: { x: x + word.length + words.slice(i + 1, nextIndex).join("").length, y },
-                end: { x: x + word.length + words.slice(i + 1, nextIndex + 1).join("").length, y },
+                begin: {
+                  x:
+                    x +
+                    word.length +
+                    words.slice(i + 1, nextIndex).join('').length,
+                  y,
+                },
+                end: {
+                  x:
+                    x +
+                    word.length +
+                    words.slice(i + 1, nextIndex + 1).join('').length,
+                  y,
+                },
               },
             }
           : undefined
@@ -327,7 +410,10 @@ export const parseText = (text) => {
         node.connection.data = node.connection.data.filter((connection) => {
           if (!labels.has(connection.target)) {
             // 유효하지 않은 참조 발견 시 에러 추가
-            errors.push({ message: CONST.ERROR_MSG.INVALID_REFERENCE, wordRange: connection.wordRange })
+            errors.push({
+              message: MSG.ERROR_MSG.INVALID_REFERENCE,
+              wordRange: connection.wordRange,
+            })
             return false
           }
           return true
@@ -363,6 +449,8 @@ export const parseText = (text) => {
   }
 
   const isSuccess = errors.length > 0 ? false : true
-  const { nodes, connections } = isSuccess ? manipulate() : { undefined, undefined }
+  const { nodes, connections } = isSuccess
+    ? manipulate()
+    : { undefined, undefined }
   return { isSuccess, result, errors, nodes, connections }
 }

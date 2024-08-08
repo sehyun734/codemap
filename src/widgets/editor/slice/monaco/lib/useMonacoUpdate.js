@@ -4,6 +4,7 @@ import { useDiagramStore } from 'shared/store/useDiagramStore'
 import { parseText } from '../util/parseText'
 import { getDecorations } from '../util/getDecorations'
 import { getSuggestions } from '../util/getSuggestions'
+import { CONST } from 'shared/const/const'
 
 export const useMonacoUpdate = (
   decorationsRef,
@@ -26,7 +27,8 @@ export const useMonacoUpdate = (
     // nodes 업데이트 로직
     Object.keys(oldNodes).forEach((key) => !newNodes[key] && deleteNode(key))
     Object.entries(newNodes).forEach(([key, newNode]) => {
-      const roundToGrid = (size) => Math.ceil(size / 22) * 22
+      const roundToGrid = (size) =>
+        Math.ceil(size / CONST.GRID_SIZE) * CONST.GRID_SIZE
 
       const oldNode = oldNodes[key]
       if (!oldNode) {

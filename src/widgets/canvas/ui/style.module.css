@@ -11,8 +11,8 @@
 .btns {
   position: absolute;
   display: flex;
+  gap: 5px;
   flex-direction: column;
-  gap: 8px;
-  bottom: 15px;
-  right: 15px;
+  bottom: 5px;
+  right: 5px;
 }
