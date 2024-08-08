@@ -41,7 +41,7 @@ export const parseText = (text) => {
     // 처음 ,가 나올때
     if (cur.word === ',' && (prev.word === '{' || prev.word === ',')) {
       errors.push({
-        message: MSG.ERROR_MSG.COMMA_AFTER_LABEL,
+        message: MSG.ALERT.COMMA_AFTER_LABEL,
         wordRange: cur.wordRange,
       })
       return
@@ -52,7 +52,7 @@ export const parseText = (text) => {
       // 자기 자신 노드 참조하면 에러
       if (curNode.label === cur.word) {
         errors.push({
-          message: MSG.ERROR_MSG.SELF_REFERENCE,
+          message: MSG.ALERT.SELF_REFERENCE,
           wordRange: cur.wordRange,
         })
       }
@@ -64,11 +64,11 @@ export const parseText = (text) => {
       if (duplication) {
         errors.push(
           {
-            message: MSG.ERROR_MSG.DUPLICATE_REFERENCE,
+            message: MSG.ALERT.DUPLICATE_REFERENCE,
             wordRange: cur.wordRange,
           },
           {
-            message: MSG.ERROR_MSG.DUPLICATE_REFERENCE,
+            message: MSG.ALERT.DUPLICATE_REFERENCE,
             wordRange: duplication.wordRange,
           }
         )
@@ -89,11 +89,11 @@ export const parseText = (text) => {
           // 중복된 옵션 추가시 에러
           errors.push(
             {
-              message: MSG.ERROR_MSG.DUPLICATE_STYLE,
+              message: MSG.ALERT.DUPLICATE_STYLE,
               wordRange: cur.wordRange,
             },
             {
-              message: MSG.ERROR_MSG.DUPLICATE_STYLE,
+              message: MSG.ALERT.DUPLICATE_STYLE,
               wordRange: lastConnection.style.wordRange,
             }
           )
@@ -106,11 +106,11 @@ export const parseText = (text) => {
         if (lastConnection.color) {
           errors.push(
             {
-              message: MSG.ERROR_MSG.DUPLICATE_COLOR,
+              message: MSG.ALERT.DUPLICATE_COLOR,
               wordRange: cur.wordRange,
             },
             {
-              message: MSG.ERROR_MSG.DUPLICATE_COLOR,
+              message: MSG.ALERT.DUPLICATE_COLOR,
               wordRange: lastConnection.color.wordRange,
             }
           )
@@ -123,11 +123,11 @@ export const parseText = (text) => {
         if (lastConnection.arrow) {
           errors.push(
             {
-              message: MSG.ERROR_MSG.DUPLICATE_ARROW,
+              message: MSG.ALERT.DUPLICATE_ARROW,
               wordRange: cur.wordRange,
             },
             {
-              message: MSG.ERROR_MSG.DUPLICATE_ARROW,
+              message: MSG.ALERT.DUPLICATE_ARROW,
               wordRange: lastConnection.arrow.wordRange,
             }
           )
@@ -137,7 +137,7 @@ export const parseText = (text) => {
       } else {
         // 해당되는 옵션이 아닐경우 에러
         errors.push({
-          message: MSG.ERROR_MSG.INVALID_CONN_OPTION,
+          message: MSG.ALERT.INVALID_CONN_OPTION,
           wordRange: cur.wordRange,
         })
         return
@@ -151,7 +151,7 @@ export const parseText = (text) => {
     // 다음 블록 명시하지 않으면 에러 (실제 keyword 및 label 유효성 검사는 openHandler에서 진행)
     if (depth < 2 && (!next || next.word !== '{')) {
       errors.push({
-        message: MSG.ERROR_MSG.MISSING_OPEN_BRACE,
+        message: MSG.ALERT.MISSING_OPEN_BRACE,
         wordRange: cur.wordRange,
       })
       return
@@ -177,7 +177,7 @@ export const parseText = (text) => {
       // 노드 이름을 선언하지 않으면 에러
       if (prev === undefined || prev.word === '{' || prev.word === '}') {
         errors.push({
-          message: MSG.ERROR_MSG.MISSING_NODE_NAME,
+          message: MSG.ALERT.MISSING_NODE_NAME,
           wordRange: cur.wordRange,
         })
         return
@@ -188,11 +188,11 @@ export const parseText = (text) => {
       if (duplication) {
         errors.push(
           {
-            message: MSG.ERROR_MSG.DUPLICATE_NODE_NAME,
+            message: MSG.ALERT.DUPLICATE_NODE_NAME,
             wordRange: prev.wordRange,
           },
           {
-            message: MSG.ERROR_MSG.DUPLICATE_NODE_NAME,
+            message: MSG.ALERT.DUPLICATE_NODE_NAME,
             wordRange: duplication.wordRange,
           }
         )
@@ -215,7 +215,7 @@ export const parseText = (text) => {
       // 키워드 이름을 선언하지 않으면 에러
       if (prev === undefined || prev.word === '{' || prev.word === '}') {
         errors.push({
-          message: MSG.ERROR_MSG.MISSING_KEYWORD,
+          message: MSG.ALERT.MISSING_KEYWORD,
           wordRange: cur.wordRange,
         })
         return
@@ -227,11 +227,11 @@ export const parseText = (text) => {
         delete curNode[prev.word]
         errors.push(
           {
-            message: MSG.ERROR_MSG.DUPLICATE_KEYWORD,
+            message: MSG.ALERT.DUPLICATE_KEYWORD,
             wordRange: prev.wordRange,
           },
           {
-            message: MSG.ERROR_MSG.DUPLICATE_KEYWORD,
+            message: MSG.ALERT.DUPLICATE_KEYWORD,
             wordRange: duplication.wordRange,
           }
         )
@@ -256,7 +256,7 @@ export const parseText = (text) => {
       // 해당되는 keyword가 아니면 에러
       else {
         errors.push({
-          message: MSG.ERROR_MSG.INVALID_KEYWORD,
+          message: MSG.ALERT.INVALID_KEYWORD,
           wordRange: prev.wordRange,
         })
         return
@@ -270,7 +270,7 @@ export const parseText = (text) => {
       // content 키워드 외의 위치에서 사용되면 에러
       if (curKeyword !== 'content') {
         errors.push({
-          message: MSG.ERROR_MSG.INVALID_BRACE_LOCATION,
+          message: MSG.ALERT.INVALID_BRACE_LOCATION,
           wordRange: prev.wordRange,
         })
         return
@@ -284,7 +284,7 @@ export const parseText = (text) => {
     // 여는 중괄호 없이 닫는 중괄호가 먼저 나왔다면 에러
     if (braces.length === 0) {
       errors.push({
-        message: MSG.ERROR_MSG.UNMATCHED_CLOSE_BRACE,
+        message: MSG.ALERT.UNMATCHED_CLOSE_BRACE,
         wordRange: cur.wordRange,
       })
       return
@@ -329,7 +329,7 @@ export const parseText = (text) => {
       // content 키워드 외의 위치에서 사용되면 에러
       if (curKeyword !== 'content') {
         errors.push({
-          message: MSG.ERROR_MSG.INVALID_BRACE_LOCATION,
+          message: MSG.ALERT.INVALID_BRACE_LOCATION,
           wordRange: prev.wordRange,
         })
         return
@@ -411,7 +411,7 @@ export const parseText = (text) => {
           if (!labels.has(connection.target)) {
             // 유효하지 않은 참조 발견 시 에러 추가
             errors.push({
-              message: MSG.ERROR_MSG.INVALID_REFERENCE,
+              message: MSG.ALERT.INVALID_REFERENCE,
               wordRange: connection.wordRange,
             })
             return false

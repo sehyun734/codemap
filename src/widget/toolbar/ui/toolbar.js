@@ -1,4 +1,4 @@
-import { ArrangeBtn, FitBtn, MadeBy, DarkToggle } from '../slice'
+import { ArrangeBtn, FitBtn, MadeBy, DarkToggle, ShareBtn } from '../slice'
 import style from './style.module.css'
 
 export const Toolbar = () => {
@@ -7,6 +7,7 @@ export const Toolbar = () => {
       <FitBtn />
       <ArrangeBtn />
       <DarkToggle />
+      <ShareBtn />
       <MadeBy />
     </div>
   )
