@@ -16,8 +16,6 @@ export const useNodeStyles = (
     if (!containerRef.current || !labelRef.current || !contentRef.current)
       return
 
-    const { updateNode } = useDiagramStore.getState()
-
     // 크기를 그리드에 맞춰 반올림
     const roundToGrid = (size) =>
       Math.ceil(size / CONST.GRID_SIZE) * CONST.GRID_SIZE
@@ -30,7 +28,8 @@ export const useNodeStyles = (
     )
 
     // 노드 크기가 변경된 경우 전역상태 업데이트
-    if (node.size?.width !== maxWidth || node.size?.height !== contentHeight) {
+    if (node.size.width !== maxWidth || node.size.height !== contentHeight) {
+      const { updateNode } = useDiagramStore.getState()
       updateNode({ ...node, size: { width: maxWidth, height: contentHeight } })
     }
 
@@ -44,9 +43,8 @@ export const useNodeStyles = (
     setContentStyle({
       height: contentHeight,
     })
-  }, [node, zIndex])
+  }, [node, containerRef, labelRef, contentRef, zIndex])
 
-  // 이미지 로딩이 완료된 후 스타일 적용
   useLayoutEffect(() => {
     handleStyle()
   }, [handleStyle])

@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useEffect, useRef } from 'react'
 import { Editor } from '@monaco-editor/react'
 import { monacoConfig } from '../config/monacoConfig'

@@ -12,7 +12,7 @@
   box-sizing: border-box;
   content: '';
   position: absolute;
-  width: 8px;
+  width: 4px;
   height: 2px;
   border-top: 2px solid var(--theme-bgOpposite);
   border-left-color: transparent;
@@ -27,7 +27,7 @@
   box-sizing: border-box;
   content: '';
   position: absolute;
-  width: 8px;
+  width: 4px;
   height: 2px;
   border-top: 2px solid var(--theme-bgOpposite);
   border-left-color: transparent;

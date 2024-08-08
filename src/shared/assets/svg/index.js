@@ -9,6 +9,7 @@ import { ReactComponent as Trash } from './trash.svg'
 import { ReactComponent as Moon } from './moon.svg'
 import { ReactComponent as Add } from './add.svg'
 import { ReactComponent as Sun } from './sun.svg'
+import { ReactComponent as Share } from './share.svg'
 
 export const svg = {
   Fit,
@@ -22,4 +23,5 @@ export const svg = {
   Moon,
   Add,
   Sun,
+  Share,
 }

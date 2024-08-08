@@ -1,8 +1,8 @@
 :root {
-  --root-color-1: #f6b194;
+  --root-color-1: #f6ee94;
   --root-color-1-rgb: 246, 177, 148;
 
-  --root-color-2: #1861ff;
+  --root-color-2: #2679ff;
   --root-color-2-rgb: 24, 97, 255;
 
   --root-color-3: #a8c7fa;
@@ -59,80 +59,44 @@
   font-style: normal;
   font-weight: 300;
   src: url('../shared/assets/font/Roboto/Roboto-Thin.ttf');
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
-    U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   src: url('../shared/assets/font/Roboto/Roboto-Regular.ttf');
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
-    U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 500;
   src: url('../shared/assets/font/Roboto/Roboto-Medium.ttf');
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
-    U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 600;
   src: url('../shared/assets/font/Roboto/Roboto-Bold.ttf');
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
-    U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
 }
 @font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
   src: url('../shared/assets/font/Roboto/Roboto-Black.ttf');
-  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+0020-002F, U+003A-0040,
-    U+005B-0060, U+007B-007E;
+  unicode-range: U+0030-0039, U+0041-005A, U+0061-007A;
 }
 @font-face {
   font-family: 'Noto_Sans_KR';
   font-style: normal;
-  font-weight: 300;
-  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Light.ttf');
-  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
-}
-@font-face {
-  font-family: 'Noto_Sans_KR';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Regular.ttf');
-  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
-}
-@font-face {
-  font-family: 'Noto_Sans_KR';
-  font-style: normal;
-  font-weight: 500;
-  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Medium.ttf');
-  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
-}
-@font-face {
-  font-family: 'Noto_Sans_KR';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-SemiBold.ttf');
-  unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
-}
-@font-face {
-  font-family: 'Noto_Sans_KR';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../shared/assets/font/Noto_Sans_KR/static/NotoSansKR-Bold.ttf');
+  src: url('/src/shared/assets/font/Noto_Sans_KR/NotoSansKR-VariableFont_wght.ttf');
   unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
 }
 
-* {
-  font-family: 'Noto_Sans_KR', 'Roboto', sans-serif;
-  border: none;
-  margin: 0;
-  padding: 0;
+body {
+  font-family: 'Roboto', 'Noto_Sans_KR', sans-serif;
+  letter-spacing: 0.3px;
 }
