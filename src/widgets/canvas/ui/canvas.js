@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useRef, useEffect } from 'react'
 import { Connection, Node, Screen } from '../slice'
 import { useDiagramStore } from 'shared/store/useDiagramStore'

@@ -18,9 +18,9 @@
   border-left-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
-  right: -6px;
+  right: -4px;
   bottom: 100%;
-  border-radius: 6px;
+  border-radius: 4px;
   border-top-color: inherit;
 }
 .line::before {
@@ -33,9 +33,9 @@
   border-left-color: transparent;
   border-right-color: transparent;
   border-bottom-color: transparent;
-  left: -6px;
+  left: -4px;
   bottom: 100%;
-  border-radius: 6px;
+  border-radius: 4px;
   border-top-color: inherit;
 }
 

@@ -1,5 +1,3 @@
-'use client'
-
 import { ArrangeBtn, FitBtn } from '../slice'
 import style from './style.module.css'
 

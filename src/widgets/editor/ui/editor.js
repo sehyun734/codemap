@@ -1,5 +1,3 @@
-'use client'
-
 import React, { useRef, useState } from 'react'
 import style from './style.module.css'
 import { Handle, HideBtn, Monaco } from '../slice'
