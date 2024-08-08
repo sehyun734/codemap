@@ -1,0 +1,68 @@
+:root {
+  --root-primary-1: #ef5a6f;
+  --root-primary-1-rgb: 239, 90, 111;
+
+  --root-primary-2: #f7f0e5;
+  --root-primary-2-rgb: 247, 240, 229;
+
+  --root-primary-3: #d4bdac;
+  --root-primary-3-rgb: 212, 189, 172;
+
+  --root-white-1: #e0e5eb;
+  --root-white-1-rgb: 223, 228, 234;
+
+  --root-black-1: #33353a;
+  --root-black-1-rgb: 51, 53, 58;
+
+  --root-black-2: #202124;
+  --root-black-2-rgb: 32, 33, 36;
+
+  --root-black-3: #1b1c1c;
+  --root-black-3-rgb: 27, 28, 28;
+
+  --theme-bgOpposite: #e6e6e6;
+  --theme-bgOpposite-rgb: 223, 228, 234;
+
+  --theme-bg: #141414;
+  --theme-bg-rgb: 88, 91, 102;
+
+  --theme-node: #151515;
+  --theme-node-rgb: 32, 33, 36;
+
+  --theme-point: #33353a;
+  --theme-point-rgb: 51, 53, 58;
+}
+
+.dark {
+  --theme-bgOpposite: #e0e5eb;
+  --theme-bgOpposite-rgb: 223, 228, 234;
+
+  --theme-bg: #2f2f2f;
+  --theme-bg-rgb: 88, 91, 102;
+
+  --theme-node: #1e1e1e;
+  --theme-node-rgb: 32, 33, 36;
+
+  --theme-point: #33353a;
+  --theme-point-rgb: 51, 53, 58;
+}
+
+.light {
+  --theme-bgOpposite: #383b3b;
+  --theme-bgOpposite-rgb: 56, 59, 59;
+
+  --theme-bg: #cad3db;
+  --theme-bg-rgb: 204, 210, 216;
+
+  --theme-node: #e0e5eb;
+  --theme-node-rgb: 223, 228, 234;
+
+  --theme-point: #ced9df;
+  --theme-point-rgb: 199, 210, 215;
+}
+
+* {
+  border: none;
+  margin: 0;
+  padding: 0;
+}

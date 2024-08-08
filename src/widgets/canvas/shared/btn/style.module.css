@@ -1,0 +1,39 @@
+.btn {
+  cursor: pointer;
+  box-sizing: border-box;
+
+  width: 55px;
+  height: 55px;
+  padding: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 50%;
+
+  background-color: var(--root-black-3);
+  color: var(--root-white-1);
+
+  & svg {
+    fill: var(--root-white-1);
+  }
+}
+
+.animation {
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: var(--root-primary-1);
+    color: var(--root-white-1);
+
+    & svg {
+      fill: var(--root-white-1);
+    }
+  }
+  &:active {
+    transform: scale(1);
+    filter: brightness(0.6);
+  }
+}
