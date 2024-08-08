@@ -67,6 +67,9 @@ export const useDiagramStore = create((set) => ({
   `,
   setEditorText: (newEditorText) => set({ editorText: newEditorText }),
 
+  error: [],
+  setError: (newError) => set({ error: newError }),
+
   nodes: {
     'table-1': {
       label: 'table-1',

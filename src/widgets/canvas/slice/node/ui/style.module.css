@@ -17,16 +17,16 @@
   white-space: nowrap;
   color: var(--theme-bgOpposite);
   opacity: 0.6;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .content {
   box-sizing: border-box;
-  padding: 10px 20px;
+  padding: 8px 13px;
   display: flex;
-  justify-content: center;
   white-space: pre;
   flex-direction: column;
+  justify-content: center;
 
   background-color: var(--theme-node);
   color: var(--theme-bgOpposite);
@@ -39,9 +39,11 @@
   margin: 8px 0;
 
   &:first-child {
+    padding-top: 0;
     margin-top: 0;
   }
   &:last-child {
+    padding-bottom: 0;
     margin-bottom: 0;
   }
 }
@@ -52,19 +54,25 @@
 
 .content h1 {
   font-size: 30px;
+  padding-top: 36px;
+  padding-bottom: 12px;
   font-weight: 600;
 }
 .content h2 {
   font-size: 25px;
+  padding-top: 36px;
+  padding-bottom: 12px;
   font-weight: 600;
 }
 .content h3 {
   font-size: 20px;
+  padding-top: 36px;
+  padding-bottom: 12px;
   font-weight: 600;
 }
 
 .content strong {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .content em {
@@ -140,7 +148,7 @@
 }
 
 .content thead {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .content thead > :first-child > th:first-child {
