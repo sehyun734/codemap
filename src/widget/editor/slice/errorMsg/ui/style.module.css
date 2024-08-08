@@ -1,6 +1,6 @@
 .error {
-  background-color: rgba(var(--root-color-5-rgb), 0.9);
-  color: var(--root-color-4);
+  background-color: rgba(var(--root-color-5-rgb), 0.85);
+  color: var(--root-white-1);
   border: 1px solid var(--root-color-4);
   border-radius: 3px;
   padding: 10px;

@@ -12,14 +12,12 @@
 
 .msg {
   position: fixed;
-  top: 15%;
+  top: 10%;
   left: 50vw;
   z-index: 100;
-  color: var(--root-white-1);
   transform: translate(-50%, -50%);
-  background-color: var(--root-color-1);
-  padding: 15px;
-  border-radius: 7px;
+  padding: 10px;
+  border-radius: 3px;
   font-size: 14px;
 
   display: flex;
@@ -27,4 +25,16 @@
   align-items: center;
 
   animation: fadeOut 2s ease-out forwards;
+}
+
+.alert {
+  background-color: rgba(var(--root-color-4-rgb), 0.3);
+  color: var(--theme-bgOpposite);
+  border: 1px solid var(--root-color-4);
+}
+
+.normal {
+  background-color: rgba(var(--root-color-3-rgb), 0.3);
+  color: var(--theme-bgOpposite);
+  border: 1px solid var(--root-color-3);
 }

@@ -7,8 +7,17 @@ export const MsgProvider = ({ children }) => {
   const [msg, setMsg] = useState(null)
 
   const handleMsg = useCallback(
-    (value) => {
-      setMsg({ value, createdAt: new Date() })
+    (text, type = 'normal') => {
+      setMsg({
+        text,
+        createdAt: new Date(),
+        type:
+          type === 'normal'
+            ? style.normal
+            : type === 'alert'
+            ? style.alert
+            : null,
+      })
     },
     [setMsg]
   )
@@ -25,8 +34,8 @@ export const MsgProvider = ({ children }) => {
     <MsgContext.Provider value={{ handleMsg }}>
       {children}
       {msg && (
-        <div key={msg.createdAt} className={style.msg}>
-          {msg.value}
+        <div key={msg.createdAt} className={`${style.msg} ${msg.type}`}>
+          {msg.text}
         </div>
       )}
     </MsgContext.Provider>
