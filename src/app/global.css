@@ -1,17 +1,14 @@
 :root {
-  --root-color-1: #e1dcb3;
+  --root-color-1: #f6b194;
   --root-color-1-rgb: 239, 90, 111;
 
-  --root-color-2: #f9a17c;
-  --root-color-2-rgb: 212, 189, 172;
+  --root-color-2: #1861ff;
+  --root-color-4-rgb: 212, 189, 172;
 
   --root-color-3: #a8c7fa;
   --root-color-3-rgb: 212, 189, 172;
 
-  --root-color-4: #417ad8;
-  --root-color-4-rgb: 212, 189, 172;
-
-  --root-white-1: #e6e6e6;
+  --root-white-1: #e9ecf1;
   --root-white-1-rgb: 223, 228, 234;
 
   --root-black-1: #141414;
@@ -22,8 +19,24 @@
 
   --root-black-3: #2e3034;
   --root-black-3-rgb: 27, 28, 28;
+}
 
-  --theme-bgOpposite: #e6e6e6;
+.light {
+  --theme-bgOpposite: #141414;
+  --theme-bgOpposite-rgb: 56, 59, 59;
+
+  --theme-bg: #e9ecf1;
+  --theme-bg-rgb: 204, 210, 216;
+
+  --theme-node: #f2f4f8;
+  --theme-node-rgb: 223, 228, 234;
+
+  --theme-point: #e1e7ec;
+  --theme-point-rgb: 199, 210, 215;
+}
+
+.dark {
+  --theme-bgOpposite: #e9ecf1;
   --theme-bgOpposite-rgb: 223, 228, 234;
 
   --theme-bg: #141414;

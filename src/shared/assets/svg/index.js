@@ -7,9 +7,9 @@ import { ReactComponent as ArrowDown } from './arrow-down.svg'
 import { ReactComponent as Rename } from './rename.svg'
 import { ReactComponent as Trash } from './trash.svg'
 import { ReactComponent as Account } from './account.svg'
-import { ReactComponent as Google } from './google.svg'
 import { ReactComponent as Moon } from './moon.svg'
 import { ReactComponent as Add } from './add.svg'
+import { ReactComponent as Sun } from './sun.svg'
 
 export const svg = {
   Fit,
@@ -21,7 +21,7 @@ export const svg = {
   Rename,
   Trash,
   Account,
-  Google,
   Moon,
   Add,
+  Sun,
 }

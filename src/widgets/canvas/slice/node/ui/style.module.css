@@ -231,7 +231,7 @@
 .content input[type='checkbox']:checked {
   pointer-events: none;
   border: none;
-  background-color: var(--root-color-4);
+  background-color: var(--root-color-2);
 }
 
 .content input[type='checkbox']:checked::after {

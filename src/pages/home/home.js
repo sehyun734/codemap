@@ -5,9 +5,9 @@ import { Toolbar } from 'widgets/toolbar/ui/toolbar'
 
 export const Home = () => {
   return (
-    <div className={style.page}>
+    <div className={style.wrapper}>
       <Editor />
-      <div className={style.box}>
+      <div className={style.right}>
         <Toolbar />
         <Canvas />
       </div>

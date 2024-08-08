@@ -26,7 +26,7 @@ export const monacoConfig = {
     rules: [{ token: '' }],
     colors: {
       'editor.background': '#1b1d1e',
-      'editor.foreground': '#e6e6e6',
+      'editor.foreground': '#e9ecf1',
     },
   },
   editorOptions: {

@@ -1,34 +1,114 @@
 import { create } from 'zustand'
 
 export const useDiagramStore = create((set) => ({
-  editorText: `table-1 {\n    content {\n        # lets gooooo\n\n        > hello there!!\n\n        |idx|product|\n        |---|---|\n        |1|lec|\n        |2|dic|\n        |3|sda|\n        |4|asq|\n        |5|ooi|\n        |6|zbn|\n        |7|buu|\n    }\n    connection {\n        table-2 arrow dashed\n    }\n}\ntable-2 {\n    content {\n        # wellll......\n\n       - [x] 체크\n        - [ ] **notice** ~~that~~\n\n        \`\`\`\n        com on!! 반가워\n        print("hello world")\n        \`\`\`\n    }\n    connection {\n        table-1 arrow \n    }\n}`,
+  editorText: `
+table-1 {
+    content {
+        # Lets gooooo
+
+        > 그렇구나~~~~
+        그런거였어~
+
+
+        |idx|product|
+        |---|---|
+        |1|lec|
+        |2|dic|
+        |3|sda|
+        |4|asq|
+        |5|ooi|
+        |6|zbn|
+
+        크핫
+    }
+    connection {
+        table-2 arrow dashed
+    }
+}
+
+table-2 {
+    content {
+        # wellll......
+    }
+    connection {
+        table-1 arrow 
+    }
+}
+
+hello-world! {
+    content {
+
+        반가우이 **안뇽!** 크핫
+        lecomeon!
+        hello world
+
+        hahah lets goooooooooooo
+
+        - [x] letsgoooo
+
+        [lets gooooooo]()
+    }
+    connection {
+        table-1 arrow,
+    }
+}
+
+그레고리 {
+    content {
+        lets gooooooooo
+    }
+}`,
   setEditorText: (newEditorText) => set({ editorText: newEditorText }),
 
   nodes: {
     'table-1': {
       label: 'table-1',
       content:
-        '<h1>lets gooooo</h1>\n<blockquote>\n<p>hello there!!</p>\n</blockquote>\n<table>\n<thead>\n<tr>\n<th>idx</th>\n<th>product</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1</td>\n<td>lec</td>\n</tr>\n<tr>\n<td>2</td>\n<td>dic</td>\n</tr>\n<tr>\n<td>3</td>\n<td>sda</td>\n</tr>\n<tr>\n<td>4</td>\n<td>asq</td>\n</tr>\n<tr>\n<td>5</td>\n<td>ooi</td>\n</tr>\n<tr>\n<td>6</td>\n<td>zbn</td>\n</tr>\n<tr>\n<td>7</td>\n<td>buu</td>\n</tr>\n</tbody></table>\n',
+        '<h1>Lets gooooo</h1>\n<blockquote>\n<p>그렇구나~~~~\n그런거였어~</p>\n</blockquote>\n<table>\n<thead>\n<tr>\n<th>idx</th>\n<th>product</th>\n</tr>\n</thead>\n<tbody><tr>\n<td>1</td>\n<td>lec</td>\n</tr>\n<tr>\n<td>2</td>\n<td>dic</td>\n</tr>\n<tr>\n<td>3</td>\n<td>sda</td>\n</tr>\n<tr>\n<td>4</td>\n<td>asq</td>\n</tr>\n<tr>\n<td>5</td>\n<td>ooi</td>\n</tr>\n<tr>\n<td>6</td>\n<td>zbn</td>\n</tr>\n</tbody></table>\n<p>크핫</p>\n',
       position: {
-        x: 264,
-        y: -110,
+        x: 49.5,
+        y: -280.5,
       },
       size: {
-        width: 220,
-        height: 396,
+        width: 198,
+        height: 429,
       },
     },
     'table-2': {
       label: 'table-2',
-      content:
-        '<h1>wellll......</h1>\n<ul>\n<li><input checked disabled type="checkbox" /> 체크</li>\n<li><input disabled type="checkbox" /> <strong>notice</strong> <del>that</del></li>\n</ul>\n<pre><code>com on!! 반가워\nprint("hello world")\n</code></pre>\n',
+      content: '<h1>wellll......</h1>\n',
       position: {
-        x: -176,
-        y: 121,
+        x: -165,
+        y: 330,
       },
       size: {
-        width: 242,
-        height: 484,
+        width: 165,
+        height: 66,
+      },
+    },
+    'hello-world!': {
+      label: 'hello-world!',
+      content:
+        '<p>반가우이 <strong>안뇽!</strong> 크핫\nlecomeon!\nhello world</p>\n<p>hahah lets goooooooooooo</p>\n<ul>\n<li><input checked disabled type="checkbox" /> letsgoooo</li>\n</ul>\n<p><a>lets gooooooo</a></p>\n',
+      position: {
+        x: -379.5,
+        y: -82.5,
+      },
+      size: {
+        width: 198,
+        height: 198,
+      },
+    },
+    그레고리: {
+      label: '그레고리',
+      content: '<p>lets gooooooooo</p>\n',
+      position: {
+        x: -346.5,
+        y: -544.5,
+      },
+      size: {
+        width: 132,
+        height: 66,
       },
     },
   },
@@ -59,6 +139,11 @@ export const useDiagramStore = create((set) => ({
       source: 'table-2',
       arrow: true,
     },
+    'hello-world!-table-1': {
+      target: 'table-1',
+      source: 'hello-world!',
+      arrow: true,
+    },
   },
 
   setConnections: (newConnections) => set({ connections: newConnections }),
@@ -78,13 +163,13 @@ export const useDiagramStore = create((set) => ({
   },
 
   screenPosition: {
-    x: 600.5820135779869,
-    y: 748.0345537464397,
+    x: 423.47237069666545,
+    y: 734.1585349654125,
   },
   setScreenPosition: (newScreenPosition) =>
     set({ screenPosition: newScreenPosition }),
 
-  screenScale: 1,
+  screenScale: 0.5981368734922745,
   setScreenScale: (newScreenScale) => set({ screenScale: newScreenScale }),
 
   screenRef: null,
