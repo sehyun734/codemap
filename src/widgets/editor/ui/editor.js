@@ -3,21 +3,22 @@ import style from './style.module.css'
 import { Handle, HideBtn, Monaco } from '../slice'
 
 export const Editor = React.memo(() => {
-  const textareaRef = useRef(null)
-  const [textareaStyle, setTextareaStyle] = useState({})
+  const editorRef = useRef(null)
+  const [editorStyle, setEditorStyle] = useState({})
 
   return (
     <div className={style.wrapper}>
-      <div className={style.textarea} ref={textareaRef} style={textareaStyle}>
+      <div className={style.editor} ref={editorRef} style={editorStyle}>
         <Monaco />
       </div>
       <div className={style.side}>
-        <Handle textareaRef={textareaRef} setTextareaStyle={setTextareaStyle} />
+        <Handle editorRef={editorRef} setEditorStyle={setEditorStyle} />
         <HideBtn
-          textareaStyleDisplay={textareaStyle.display}
-          setTextareaStyle={setTextareaStyle}
+          editorStyleDisplay={editorStyle.display}
+          setEditorStyle={setEditorStyle}
         />
       </div>
+      <div className=""></div>
     </div>
   )
 })

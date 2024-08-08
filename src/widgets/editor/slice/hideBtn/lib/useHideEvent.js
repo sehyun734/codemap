@@ -1,12 +1,12 @@
-import { useCallback } from "react"
+import { useCallback } from 'react'
 
-export const useHideEvent = (setTextareaStyle) => {
+export const useHideEvent = (setEditorStyle) => {
   const handleHide = useCallback(() => {
-    setTextareaStyle((prev) => ({
+    setEditorStyle((prev) => ({
       ...prev,
-      display: prev.display === "none" ? "" : "none",
+      display: prev.display === 'none' ? '' : 'none',
     }))
-  }, [setTextareaStyle])
+  }, [setEditorStyle])
 
   return { handleHide }
 }
