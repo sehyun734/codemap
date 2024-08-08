@@ -3,7 +3,7 @@ import { MSG } from 'shared/const/msg'
 import { useMsg } from 'shared/hook/useMsg'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 
-export const useDiagramToUrl = () => {
+export const useShare = () => {
   const { handleMsg } = useMsg()
 
   const getUrl = useCallback((diagramStr) => {

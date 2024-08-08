@@ -2,10 +2,10 @@ import { Editor } from 'widget/editor/ui/editor'
 import { Toolbar } from 'widget/toolbar/ui/toolbar'
 import { Canvas } from 'widget/canvas/ui/canvas'
 import style from './style.module.css'
-import { useUrlToDiagram } from '../lib/useUrlToDiagram'
+import { useLoad } from '../lib/useLoad'
 
 export const Home = () => {
-  useUrlToDiagram()
+  useLoad()
 
   return (
     <div className={style.wrapper}>

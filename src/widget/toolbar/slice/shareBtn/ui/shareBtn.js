@@ -1,9 +1,9 @@
 import { shared } from '../../../shared'
 import { asset } from 'shared/asset'
-import { useDiagramToUrl } from '../lib/useDiagramToUrl'
+import { useShare } from '../lib/useShare'
 
 export const ShareBtn = () => {
-  const { handleDataToUrl } = useDiagramToUrl()
+  const { handleDataToUrl } = useShare()
   return (
     <shared.Btn onClick={handleDataToUrl}>
       <asset.svg.Share />

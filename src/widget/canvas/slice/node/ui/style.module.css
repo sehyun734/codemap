@@ -39,11 +39,9 @@
   margin: 8px 0;
 
   &:first-child {
-    padding-top: 0;
     margin-top: 0;
   }
   &:last-child {
-    padding-bottom: 0;
     margin-bottom: 0;
   }
 }
@@ -54,20 +52,14 @@
 
 .content h1 {
   font-size: 30px;
-  padding-top: 36px;
-  padding-bottom: 12px;
   font-weight: 600;
 }
 .content h2 {
   font-size: 25px;
-  padding-top: 36px;
-  padding-bottom: 12px;
   font-weight: 600;
 }
 .content h3 {
   font-size: 20px;
-  padding-top: 36px;
-  padding-bottom: 12px;
   font-weight: 600;
 }
 
