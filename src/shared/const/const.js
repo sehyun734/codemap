@@ -12,9 +12,9 @@ export const CONST = {
 
   CONN_WIDTH: 2,
   ARROW_SIZE: 10,
-  CONN_SPACE: 33,
+  CONN_SPACE: 22,
 
-  NODE_SPACE: 99,
+  NODE_SPACE: 66,
 
   MIN_EDITOR_WIDTH: 200,
   get MAX_EDITOR_WIDTH() {
