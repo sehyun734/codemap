@@ -57,7 +57,7 @@ export const useNodeEvents = (containerRef, node, handleZIndexMaximize) => {
   }, [])
 
   const handleContextMenu = useCallback((e) => {
-    e.preventContext()
+    e.preventDefault()
   }, [])
 
   useEffect(() => {

@@ -140,7 +140,6 @@
 .content table {
   width: 100%;
   border-radius: 2px;
-  border-collapse: separate;
   background-color: var(--theme-point);
 }
 
