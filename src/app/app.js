@@ -1,16 +1,19 @@
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from '../page/router'
 import { ThemeProvider } from 'shared/provider/themeProvider'
+import { MsgProvider } from 'shared/provider/msgProvider/msgProvider'
+import { ModalProvider } from 'shared/provider/modalProvider/modalProvider'
 import './global.css'
 import './reset.css'
-import { MsgProvider } from 'shared/provider/msgProvider/msgProvider'
 
 function App() {
   return (
     <BrowserRouter>
       <ThemeProvider>
         <MsgProvider>
-          <Router />
+          <ModalProvider>
+            <Router />
+          </ModalProvider>
         </MsgProvider>
       </ThemeProvider>
     </BrowserRouter>

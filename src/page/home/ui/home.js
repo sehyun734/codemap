@@ -10,8 +10,6 @@ export const Home = () => {
   const { isLoading: isAddLoading } = useAddDiagramToLocalStorage()
   const { isLoading: isKeyDownSaveLoading } = useHomeListener()
 
-  // if (isLoadLoading) return null
-
   return (
     <div className={style.wrapper}>
       <Editor />
