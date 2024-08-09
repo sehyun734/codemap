@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
 import { useMonacoStore } from 'shared/store/useMonacoStore'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
-import { parseText } from '../util/parseText'
-import { getDecorations } from '../util/getDecorations'
-import { getSuggestions } from '../util/getSuggestions'
+import { parseText } from '../core/parseText'
+import { getDecorations } from '../core/getDecorations'
+import { getSuggestions } from '../core/getSuggestions'
 import { CONST } from 'shared/const/const'
 
 export const useMonacoUpdate = (

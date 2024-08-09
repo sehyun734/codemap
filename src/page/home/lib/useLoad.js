@@ -3,16 +3,11 @@ import { useSearchParams } from 'react-router-dom'
 import { MSG } from 'shared/const/msg'
 import { useMsg } from 'shared/hook/useMsg'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
+import { parseDiagram } from 'shared/util/parseDiagram'
 
 export const useLoad = () => {
-  const [query] = useSearchParams()
+  const [query, setQuery] = useSearchParams()
   const { handleMsg } = useMsg()
-
-  const parseData = useCallback((diagramStr) => {
-    const data = JSON.parse(decodeURIComponent(atob(diagramStr)))
-
-    return data
-  }, [])
 
   const setStore = useCallback(
     (diagramObj) => {
@@ -31,19 +26,22 @@ export const useLoad = () => {
       setScreenScale(diagramObj.screenScale)
 
       handleMsg(MSG.DEFAULT.LOAD_SUCCESS)
+      setQuery({})
     },
-    [handleMsg]
+    [handleMsg, setQuery]
   )
 
   useEffect(() => {
     try {
       const diagramStr = query.get('diagram')
+
       if (!diagramStr) return
-      setStore(parseData(diagramStr))
+
+      setStore(parseDiagram(diagramStr))
     } catch {
       handleMsg(MSG.ALERT.INVALID_DIAGRAM_URL, 'alert')
     }
-  }, [query, parseData, setStore, handleMsg])
+  }, [query, setStore, handleMsg])
 
   return {}
 }

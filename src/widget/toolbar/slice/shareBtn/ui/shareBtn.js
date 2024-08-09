@@ -1,9 +1,9 @@
 import { shared } from '../../../shared'
 import { asset } from 'shared/asset'
-import { useShare } from '../lib/useShare'
+import { useShareEvent } from '../lib/useShareEvent'
 
 export const ShareBtn = () => {
-  const { handleDataToUrl } = useShare()
+  const { handleDataToUrl } = useShareEvent()
   return (
     <shared.Btn onClick={handleDataToUrl}>
       <asset.svg.Share />

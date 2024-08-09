@@ -2,8 +2,9 @@ import { useCallback } from 'react'
 import { MSG } from 'shared/const/msg'
 import { useMsg } from 'shared/hook/useMsg'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
+import { stringifyDiagram } from 'shared/util/stringifyDiagram'
 
-export const useShare = () => {
+export const useShareEvent = () => {
   const { handleMsg } = useMsg()
 
   const getUrl = useCallback((diagramStr) => {
@@ -14,12 +15,6 @@ export const useShare = () => {
     const url = curUrl.toString()
 
     return url
-  }, [])
-
-  const getDiagramStr = useCallback((diagramObj) => {
-    const diagramStr = btoa(encodeURIComponent(JSON.stringify(diagramObj)))
-
-    return diagramStr
   }, [])
 
   const handleDataToUrl = useCallback(() => {
@@ -34,10 +29,10 @@ export const useShare = () => {
       screenScale,
     }
 
-    const url = getUrl(getDiagramStr(diagramObj))
+    const url = getUrl(stringifyDiagram(diagramObj))
     navigator.clipboard.writeText(url)
     handleMsg(MSG.DEFAULT.SHARE)
-  }, [handleMsg, getUrl, getDiagramStr])
+  }, [handleMsg, getUrl])
 
   return { handleDataToUrl }
 }
