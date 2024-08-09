@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import style from './style.module.css'
 import { useNodeStyles } from '../lib/useNodeStyles'
-import { useNodeEvents } from '../lib/useNodeEvents'
+import { useNodeListener } from '../lib/useNodeListener'
 
 export const Node = React.memo(({ node, handleZIndexMaximize, zIndex }) => {
   const containerRef = useRef(null)
@@ -15,7 +15,7 @@ export const Node = React.memo(({ node, handleZIndexMaximize, zIndex }) => {
     labelRef,
     contentRef
   )
-  useNodeEvents(containerRef, node, handleZIndexMaximize)
+  useNodeListener(containerRef, node, handleZIndexMaximize)
 
   return (
     <span className={style.container} ref={containerRef} style={containerStyle}>

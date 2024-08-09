@@ -1,7 +1,7 @@
 import { useRef, useCallback, useEffect } from 'react'
 import { CONST } from 'shared/const/const'
 
-export const useHandleEvents = (editorRef, setEditorStyle, handleRef) => {
+export const useHandleListener = (editorRef, setEditorStyle, handleRef) => {
   const isDragging = useRef(false)
   const startX = useRef(0)
   const startWidth = useRef(0)

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import { CONST } from 'shared/const/const'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 
-export const useNodeEvents = (containerRef, node, handleZIndexMaximize) => {
+export const useNodeListener = (containerRef, node, handleZIndexMaximize) => {
   const isDragging = useRef(false)
   const offset = useRef({ x: 0, y: 0 })
 

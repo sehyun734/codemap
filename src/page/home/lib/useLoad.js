@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { MSG } from 'shared/const/msg'
 import { useMsg } from 'shared/hook/useMsg'
@@ -6,6 +6,7 @@ import { useDiagramStore } from 'shared/store/useDiagramStore'
 import { parseDiagram } from 'shared/util/parseDiagram'
 
 export const useLoad = () => {
+  const [isLoading, setIsLoading] = useState(true)
   const [query, setQuery] = useSearchParams()
   const { handleMsg } = useMsg()
 
@@ -40,8 +41,10 @@ export const useLoad = () => {
       setStore(parseDiagram(diagramStr))
     } catch {
       handleMsg(MSG.ALERT.INVALID_DIAGRAM_URL, 'alert')
+    } finally {
+      setIsLoading(false)
     }
   }, [query, setStore, handleMsg])
 
-  return {}
+  return { isLoading }
 }

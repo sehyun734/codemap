@@ -1,10 +1,10 @@
 import React from 'react'
 import { asset } from 'shared/asset'
-import { useFitEvent } from '../lib/useFitEvent'
+import { useFit } from '../lib/useFit'
 import { shared } from '../../../shared'
 
 export const FitBtn = React.memo(() => {
-  const { handleFit } = useFitEvent()
+  const { handleFit } = useFit()
 
   return (
     <shared.Btn onClick={handleFit}>

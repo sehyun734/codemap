@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { CONST } from 'shared/const/const'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 
-export const useArrangeEvent = () => {
+export const useArrange = () => {
   // 노드들의 전체 크기를 계산하는 함수
   const getDimensions = useCallback((nodes) => {
     return nodes.reduce(

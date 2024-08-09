@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 
-export const useHideEvent = (setEditorStyle) => {
+export const useHide = (setEditorStyle) => {
   const handleHide = useCallback(() => {
     setEditorStyle((prev) => ({
       ...prev,

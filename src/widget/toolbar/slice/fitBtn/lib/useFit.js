@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 
-export const useFitEvent = () => {
+export const useFit = () => {
   const calculateMinMax = useCallback((nodes) => {
     return Object.values(nodes).reduce(
       (acc, node) => {

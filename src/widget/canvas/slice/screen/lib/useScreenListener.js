@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from 'react'
 import { CONST } from 'shared/const/const'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 
-export const useScreenEvents = (bgRef) => {
+export const useScreenListener = (bgRef) => {
   const screenPosition = useDiagramStore((state) => state.screenPosition)
   const screenScale = useDiagramStore((state) => state.screenScale)
   const isDraggingRef = useRef(false)

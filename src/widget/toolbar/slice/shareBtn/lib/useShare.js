@@ -4,7 +4,7 @@ import { useMsg } from 'shared/hook/useMsg'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 import { stringifyDiagram } from 'shared/util/stringifyDiagram'
 
-export const useShareEvent = () => {
+export const useShare = () => {
   const { handleMsg } = useMsg()
 
   const getUrl = useCallback((diagramStr) => {
