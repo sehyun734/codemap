@@ -1,13 +1,16 @@
 import { Editor } from 'widget/editor/ui/editor'
 import { Toolbar } from 'widget/toolbar/ui/toolbar'
 import { Canvas } from 'widget/canvas/ui/canvas'
-import { useLoad } from '../lib/useLoad'
+import { useAddDiagramToLocalStorage } from '../lib/useAddDiagramToLocalStorage'
 import style from './style.module.css'
+import { useHomeListener } from '../lib/useHomeListener'
+import { Nav } from 'widget/nav/ui/nav'
 
 export const Home = () => {
-  const { isLoading: isLoadLoading } = useLoad()
+  const { isLoading: isAddLoading } = useAddDiagramToLocalStorage()
+  const { isLoading: isKeyDownSaveLoading } = useHomeListener()
 
-  if (isLoadLoading) return null
+  // if (isLoadLoading) return null
 
   return (
     <div className={style.wrapper}>
@@ -15,6 +18,7 @@ export const Home = () => {
       <div className={style.right}>
         <Toolbar />
         <Canvas />
+        <Nav />
       </div>
     </div>
   )

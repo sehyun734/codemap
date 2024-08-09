@@ -1,8 +1,7 @@
 import { useCallback } from 'react'
 import { MSG } from 'shared/const/msg'
 import { useMsg } from 'shared/hook/useMsg'
-import { useDiagramStore } from 'shared/store/useDiagramStore'
-import { stringifyDiagram } from 'shared/util/stringifyDiagram'
+import { getQueryFromDiagram } from 'shared/util/getQueryFromDiagram'
 
 export const useShare = () => {
   const { handleMsg } = useMsg()
@@ -18,18 +17,7 @@ export const useShare = () => {
   }, [])
 
   const handleDataToUrl = useCallback(() => {
-    const { nodes, connections, editorText, screenPosition, screenScale } =
-      useDiagramStore.getState()
-
-    const diagramObj = {
-      nodes,
-      connections,
-      editorText,
-      screenPosition,
-      screenScale,
-    }
-
-    const url = getUrl(stringifyDiagram(diagramObj))
+    const url = getUrl(getQueryFromDiagram())
     navigator.clipboard.writeText(url)
     handleMsg(MSG.DEFAULT.SHARE)
   }, [handleMsg, getUrl])

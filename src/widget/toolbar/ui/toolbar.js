@@ -3,7 +3,7 @@ import style from './style.module.css'
 
 export const Toolbar = () => {
   return (
-    <div className={style.btns}>
+    <div className={style.toolbar}>
       <FitBtn />
       <ArrangeBtn />
       <DarkToggle />
