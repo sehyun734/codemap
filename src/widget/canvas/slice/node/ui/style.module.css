@@ -52,15 +52,15 @@
 
 .content h1 {
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 700;
 }
 .content h2 {
   font-size: 25px;
-  font-weight: 600;
+  font-weight: 700;
 }
 .content h3 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .content strong {
@@ -168,9 +168,6 @@
 
 .content th {
   border-bottom: 1px solid var(--theme-bgOpposite);
-  border-left: 1px solid var(--theme-bgOpposite);
-  box-sizing: border-box;
-  padding: 4px 12px;
 }
 
 .content tr > td:first-child,
@@ -198,7 +195,7 @@
 }
 
 .content a:hover {
-  filter: brightness(1.5);
+  filter: brightness(1.2);
 }
 
 .content input[type='checkbox'] {

@@ -1,5 +1,5 @@
 export const MSG = {
-  ALERT: {
+  MONACO: {
     COMMA_AFTER_LABEL: 'Node label must follow the comma.',
     SELF_REFERENCE: 'Node cannot reference itself.',
     DUPLICATE_REFERENCE: 'Duplicate node label reference.',
@@ -16,12 +16,16 @@ export const MSG = {
     INVALID_BRACE_LOCATION: 'Braces only allowed in content keyword.',
     UNMATCHED_CLOSE_BRACE: 'Closing brace without opening brace.',
     INVALID_REFERENCE: 'Reference to non-existent node.',
-
-    INVALID_DIAGRAM_URL: 'Invalid diagram URL.',
   },
 
   DEFAULT: {
     SHARE: 'Copied to clipboard.',
-    LOAD_SUCCESS: 'Diagram loaded successfully.',
+    LOAD_LOCAL_SUCCESS: 'URL diagram loaded successfully.',
+    LOAD_LOCAL_FAIL: 'Invalid local diagram.',
+
+    LOAD_QUERY_SUCCESS: 'Diagram from URL loaded successfully.',
+    LOAD_QUERY_FAIL: 'Invalid diagram URL.',
+
+    SAVE_SUCCESS: 'Diagram save successfully.',
   },
 }

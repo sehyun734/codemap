@@ -53,6 +53,10 @@
   font-size: 14px;
 }
 
+.submit {
+  background-color: var(--root-color-2);
+}
+
 .animation {
   &:hover {
     filter: brightness(1.2);

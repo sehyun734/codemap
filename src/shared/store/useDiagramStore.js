@@ -1,17 +1,7 @@
-import { getCurrentDateTime } from 'shared/util/getCurrentDateTime'
 import { create } from 'zustand'
 
 export const useDiagramStore = create((set) => ({
   setInit: (initialData) => set((state) => ({ ...state, ...initialData })),
-
-  createdAt: getCurrentDateTime(),
-  setCreatedAt: (newIndex) => set((state) => ({ createdAt: newIndex })),
-
-  name: 'untitled',
-  setName: (newName) => set((state) => ({ name: newName })),
-
-  order: [],
-  setOrder: (newOrder) => set((state) => ({ order: newOrder })),
 
   editorText: '',
   setEditorText: (newEditorText) =>

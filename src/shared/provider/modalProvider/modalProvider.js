@@ -16,7 +16,7 @@ export const ModalProvider = ({ children }) => {
 
   const handleModal = useCallback(({ submitBtn, handleSubmit, innerForm }) => {
     const submitBtnWithClick = React.cloneElement(submitBtn, {
-      className: `${style.btn} ${style.animation}`,
+      className: `${style.btn} ${style.submit} ${style.animation}`,
     })
 
     const handleSubmitWithClose = (e) => {

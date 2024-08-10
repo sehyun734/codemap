@@ -89,7 +89,11 @@
   unicode-range: U+1100-11FF, U+3130-318F, U+A960-A97F, U+AC00-D7A3, U+D7B0-D7FF;
 }
 
+* {
+  line-height: 140%;
+  letter-spacing: 0.5px;
+}
+
 body {
   font-family: 'Noto_Sans_KR', sans-serif;
-  letter-spacing: 0.3px;
 }

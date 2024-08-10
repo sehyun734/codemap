@@ -12,10 +12,9 @@
 
 .msg {
   position: fixed;
-  top: 10%;
-  left: 50vw;
+  top: 68px;
+  right: 20px;
   z-index: 100;
-  transform: translate(-50%, -50%);
   padding: 10px;
   border-radius: 3px;
   font-size: 14px;
