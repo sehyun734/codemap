@@ -15,6 +15,7 @@
 
 .title {
   font-weight: 800;
+  line-height: 100%;
   font-size: 50px;
   color: var(--root-color-4);
 }

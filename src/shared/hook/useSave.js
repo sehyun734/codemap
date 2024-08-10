@@ -25,7 +25,7 @@ export const useSave = () => {
     } finally {
       setIsLoading(false)
     }
-  }, [])
+  }, [handleMsg])
 
   return { isLoading, handleSave }
 }

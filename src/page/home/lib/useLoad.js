@@ -1,12 +1,12 @@
 import { useCallback, useEffect } from 'react'
 import { useModal } from 'shared/hook/useModal'
-import style from '../ui/style.module.css'
 import { useSearchParams } from 'react-router-dom'
 import { getDiagramFromQuery } from 'shared/util/getDiagramFromQuery'
 import { useDiagramStore } from 'shared/store/useDiagramStore'
 import { useMonacoStore } from 'shared/store/useMonacoStore'
 import { useMsg } from 'shared/hook/useMsg'
 import { MSG } from 'shared/const/msg'
+import style from '../ui/style.module.css'
 
 export const useLoad = () => {
   const { handleModal } = useModal()
@@ -16,84 +16,46 @@ export const useLoad = () => {
   const handleLocal = useCallback(() => {
     try {
       const { setInit } = useDiagramStore.getState()
-
-      const { nodes, connections, screenPosition, editorText, screenScale } =
-        JSON.parse(localStorage.getItem('diagram'))
-
-      setInit({
-        nodes,
-        editorText,
-        connections,
-        screenPosition,
-        screenScale,
-      })
+      const diagramObj = JSON.parse(localStorage.getItem('diagram') || '{}')
+      setInit(diagramObj)
       handleMsg(MSG.DEFAULT.LOAD_LOCAL_SUCCESS)
     } catch {
-      handleMsg(MSG.DEFAULT.LOAD_LOCAL_FAIL)
-    } finally {
+      handleMsg(MSG.DEFAULT.LOAD_LOCAL_FAIL, 'alert')
     }
-  }, [])
+  }, [handleMsg])
 
   const handleRemote = useCallback(() => {
     try {
+      const { setInit } = useDiagramStore.getState()
       const { editor } = useMonacoStore.getState()
-      if (!editor) {
-        const { setInit } = useDiagramStore.getState()
+      const diagramQuery = query.get('diagram')
+      const diagramObj = getDiagramFromQuery(diagramQuery)
 
-        const diagramQuery = query.get('diagram')
-        const { nodes, connections, screenPosition, editorText, screenScale } =
-          getDiagramFromQuery(diagramQuery)
+      setInit(diagramObj)
 
-        setInit({
-          nodes,
-          connections,
-          editorText,
-          screenPosition,
-          screenScale,
-        })
-      } else {
-        const { setInit } = useDiagramStore.getState()
-
-        const diagramQuery = query.get('diagram')
-        const { nodes, connections, screenPosition, editorText, screenScale } =
-          getDiagramFromQuery(diagramQuery)
-
-        setInit({
-          nodes,
-          connections,
-          screenPosition,
-          screenScale,
-        })
-
+      if (editor) {
         const model = editor.getModel()
         if (model) {
-          model.setValue(editorText)
+          model.setValue(diagramObj.editorText)
         }
       }
 
-      setQuery({})
-
       handleMsg(MSG.DEFAULT.LOAD_QUERY_SUCCESS)
     } catch {
-      handleMsg(MSG.DEFAULT.LOAD_QUERY_FAIL)
-    } finally {
+      handleMsg(MSG.DEFAULT.LOAD_QUERY_FAIL, 'alert')
     }
-  }, [])
+  }, [handleMsg, query])
 
   useEffect(() => {
-    try {
-      const isExistLocal = localStorage.getItem('diagram')
-      const isExistRemote = query.get('diagram')
+    const isExistLocal = localStorage.getItem('diagram')
+    const isExistRemote = query.get('diagram')
 
+    if (isExistLocal) {
+      handleLocal()
+    }
+
+    if (isExistRemote) {
       if (isExistLocal) {
-        handleLocal()
-      }
-
-      if (!isExistLocal && isExistRemote) {
-        handleRemote()
-      }
-
-      if (isExistLocal && isExistRemote) {
         handleModal({
           submitBtn: <button>confirm</button>,
           handleSubmit: handleRemote,
@@ -103,7 +65,7 @@ export const useLoad = () => {
               <span className={style.sub}>
                 Load a new diagram will
                 <span
-                  style={{ color: 'var(--root-color-4', fontWeight: '800' }}
+                  style={{ color: 'var(--root-color-4)', fontWeight: '800' }}
                 >
                   {' '}
                   replace{' '}
@@ -115,11 +77,13 @@ export const useLoad = () => {
             </>
           ),
         })
+      } else {
+        handleRemote()
       }
-    } catch {
-    } finally {
     }
-  }, [])
+
+    setQuery({}, { replace: true })
+  }, [handleLocal, handleModal, handleRemote, setQuery, query])
 
   return {}
 }
