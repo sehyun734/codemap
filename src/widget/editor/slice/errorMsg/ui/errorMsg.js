@@ -4,7 +4,14 @@ import React, { useEffect, useState } from 'react'
 
 export const ErrorMsg = React.memo(({ editorStyleDisplay }) => {
   const [isDelay, setIsDelay] = useState(true)
-  const errors = useDiagramStore((state) => state.errors)
+  const [errors, setErrors] = useState([])
+  const storedErrors = useDiagramStore((state) => state.errors)
+
+  useEffect(() => {
+    if (JSON.stringify(errors) !== JSON.stringify(storedErrors)) {
+      setErrors([...storedErrors])
+    }
+  }, [storedErrors, setErrors])
 
   useEffect(() => {
     setIsDelay(true)
