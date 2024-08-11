@@ -10,8 +10,6 @@ export const Canvas = React.memo(() => {
   const connections = useDiagramStore((state) => state.connections)
   const wrapperRef = useRef(null)
 
-  console.log(useDiagramStore.getState())
-
   const { zIndex, handleZIndexMaximize } = useZIndex()
   const { handleInteractiveCheck } = useConnectionInteractivity()
 

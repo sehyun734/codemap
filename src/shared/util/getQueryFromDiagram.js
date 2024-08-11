@@ -1,4 +1,5 @@
 import { useDiagramStore } from 'shared/store/useDiagramStore'
+import lz from 'lz-string'
 
 export const getQueryFromDiagram = () => {
   const { nodes, connections, editorText, screenPosition, screenScale } =
@@ -12,5 +13,5 @@ export const getQueryFromDiagram = () => {
     screenScale,
   }
 
-  return btoa(encodeURIComponent(JSON.stringify(diagramObj)))
+  return lz.compressToEncodedURIComponent(JSON.stringify(diagramObj))
 }
