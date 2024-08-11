@@ -16,10 +16,10 @@
 .title {
   font-weight: 800;
   line-height: 100%;
-  font-size: 50px;
+  font-size: 35px;
   color: var(--root-color-4);
 }
 
 .sub {
-  font-size: 18px;
+  font-size: 14px;
 }

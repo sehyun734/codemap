@@ -71,7 +71,7 @@ export const ModalProvider = ({ children }) => {
                   onClick={handleClose}
                   className={`${style.btn} ${style.animation}`}
                 >
-                  cancel
+                  Cancel
                 </button>
               </span>
             </form>

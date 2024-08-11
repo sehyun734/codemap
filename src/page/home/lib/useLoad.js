@@ -57,13 +57,13 @@ export const useLoad = () => {
     if (isExistRemote) {
       if (isExistLocal) {
         handleModal({
-          submitBtn: <button>confirm</button>,
+          submitBtn: <button>Confirm</button>,
           handleSubmit: handleRemote,
           innerForm: (
             <>
-              <span className={style.title}>WAIT!</span>
+              <span className={style.title}>CAUTION!</span>
               <span className={style.sub}>
-                Load a new diagram will
+                Loading a new diagram will
                 <span
                   style={{ color: 'var(--root-color-4)', fontWeight: '800' }}
                 >

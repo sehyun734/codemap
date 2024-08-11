@@ -20,7 +20,7 @@ export const MSG = {
 
   DEFAULT: {
     SHARE: 'Copied to clipboard.',
-    LOAD_LOCAL_SUCCESS: 'URL diagram loaded successfully.',
+    LOAD_LOCAL_SUCCESS: 'Local diagram loaded successfully.',
     LOAD_LOCAL_FAIL: 'Invalid local diagram.',
 
     LOAD_QUERY_SUCCESS: 'Diagram from URL loaded successfully.',
