@@ -27,7 +27,9 @@ export const parseText = (text) => {
     }
     // 줄바꿈이 되었을때,
     else if (lineDiff > 0) {
-      curNode['content'].data += '\n'.repeat(lineDiff) + cur.word
+      const spaceDiff = Math.max(Math.floor(cur.wordRange.begin.x - 9), 0)
+      curNode['content'].data +=
+        '\n'.repeat(lineDiff) + ' '.repeat(spaceDiff) + cur.word
     } else {
       // 공백 여부
       const spaceDiff = cur.wordRange.begin.x - prev.wordRange.end.x
