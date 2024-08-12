@@ -11,7 +11,7 @@ import style from './style.module.css'
 
 export const Toolbar = React.memo(() => {
   return (
-    <div className={style.toolbar}>
+    <header className={style.toolbar}>
       <FitBtn />
       <ArrangeBtn />
       <div className={style.divider} />
@@ -20,6 +20,6 @@ export const Toolbar = React.memo(() => {
       <div className={style.divider} />
       <DarkToggle />
       <MadeBy />
-    </div>
+    </header>
   )
 })

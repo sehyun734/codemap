@@ -10,12 +10,15 @@ export const Home = () => {
   useLoad()
 
   return (
-    <div className={style.wrapper}>
-      <Editor />
-      <div className={style.right}>
-        <Toolbar />
-        <Canvas />
+    <>
+      <h1 style={{ visibility: 'hidden', height: 0 }}>codiagram</h1>
+      <div className={style.wrapper}>
+        <Editor />
+        <div className={style.right}>
+          <Toolbar />
+          <Canvas />
+        </div>
       </div>
-    </div>
+    </>
   )
 }

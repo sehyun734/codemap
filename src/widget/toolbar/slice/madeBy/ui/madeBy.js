@@ -1,5 +1,5 @@
 import style from './style.module.css'
 
 export const MadeBy = () => {
-  return <span className={style.madeBy}>Made by SEHYUN</span>
+  return <h5 className={style.madeBy}>Made by SEHYUN</h5>
 }

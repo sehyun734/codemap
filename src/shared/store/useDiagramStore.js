@@ -3,7 +3,7 @@ import { create } from 'zustand'
 export const useDiagramStore = create((set) => ({
   setInit: (initialData) => set((state) => ({ ...state, ...initialData })),
 
-  name: 'untitled',
+  name: 'codiagram intro',
   setName: (newName) => set((state) => ({ name: newName })),
 
   editorText:

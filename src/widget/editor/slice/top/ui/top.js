@@ -10,7 +10,7 @@ export const Top = () => {
 
   return (
     <div className={style.top}>
-      <div className={style.name}>{name}</div>
+      <h3 className={style.name}>{name}</h3>
       <button
         onClick={handleRenameModal}
         className={`${style.btn} ${style.animation}`}
