@@ -11,6 +11,15 @@ export const ThemeProvider = ({ children }) => {
   }, [])
 
   useEffect(() => {
+    const localIsDark = localStorage.getItem('localIsDark')
+
+    if (!localIsDark) return
+
+    setIsDark(JSON.parse(localIsDark))
+  }, [setIsDark])
+
+  useEffect(() => {
+    localStorage.setItem('localIsDark', isDark)
     document.body.classList.remove('dark', 'light')
     document.body.classList.add(isDark ? 'dark' : 'light')
   }, [isDark])
