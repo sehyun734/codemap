@@ -18,3 +18,10 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+.divider {
+  height: 70%;
+  width: 1px;
+  background-color: var(--root-white-1);
+  opacity: 0.2;
+}

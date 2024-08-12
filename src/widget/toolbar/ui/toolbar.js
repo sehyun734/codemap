@@ -1,5 +1,12 @@
 import React from 'react'
-import { ArrangeBtn, FitBtn, MadeBy, DarkToggle, ShareBtn } from '../slice'
+import {
+  ArrangeBtn,
+  FitBtn,
+  MadeBy,
+  DarkToggle,
+  ShareBtn,
+  SaveBtn,
+} from '../slice'
 import style from './style.module.css'
 
 export const Toolbar = React.memo(() => {
@@ -7,8 +14,11 @@ export const Toolbar = React.memo(() => {
     <div className={style.toolbar}>
       <FitBtn />
       <ArrangeBtn />
-      <DarkToggle />
+      <div className={style.divider} />
       <ShareBtn />
+      <SaveBtn />
+      <div className={style.divider} />
+      <DarkToggle />
       <MadeBy />
     </div>
   )

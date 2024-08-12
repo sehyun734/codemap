@@ -11,7 +11,7 @@ export const ErrorMsg = React.memo(({ editorStyleDisplay }) => {
     if (JSON.stringify(errors) !== JSON.stringify(storedErrors)) {
       setErrors([...storedErrors])
     }
-  }, [storedErrors, setErrors])
+  }, [storedErrors, setErrors, errors])
 
   useEffect(() => {
     setIsDelay(true)
