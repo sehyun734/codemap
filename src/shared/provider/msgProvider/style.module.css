@@ -13,7 +13,8 @@
 .msg {
   position: fixed;
   top: 68px;
-  right: 20px;
+  right: 50%;
+  transform: translateX(50%);
   z-index: 100;
   padding: 10px;
   border-radius: 3px;
