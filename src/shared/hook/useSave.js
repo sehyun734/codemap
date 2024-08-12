@@ -9,10 +9,17 @@ export const useSave = () => {
 
   const handleSave = useCallback(() => {
     try {
-      const { nodes, connections, editorText, screenPosition, screenScale } =
-        useDiagramStore.getState()
+      const {
+        name,
+        nodes,
+        connections,
+        editorText,
+        screenPosition,
+        screenScale,
+      } = useDiagramStore.getState()
 
       const diagramJSON = JSON.stringify({
+        name,
         nodes,
         connections,
         editorText,

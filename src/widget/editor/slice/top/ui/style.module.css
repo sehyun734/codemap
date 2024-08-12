@@ -1,0 +1,70 @@
+.top {
+  box-sizing: border-box;
+  height: 40px;
+  width: 100%;
+  background-color: var(--root-black-2);
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  font-weight: 700;
+  color: var(--root-white-1);
+  position: relative;
+  top: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name::before {
+  content: '🗒️';
+  margin-right: 12px;
+  position: relative;
+  top: -1px;
+}
+
+.btn {
+  margin-left: 10px;
+  box-sizing: border-box;
+  width: 26px;
+  height: 26px;
+  border-radius: 3px;
+  background-color: var(--root-black-2);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn svg {
+  fill: var(--root-white-1);
+  width: 14px;
+  height: 14px;
+}
+
+.animation {
+  &:hover {
+    filter: brightness(2);
+  }
+  &:active {
+    filter: brightness(0.6);
+  }
+}
+
+.title {
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.input {
+  color: var(--root-white-1);
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  background-color: var(--root-black-3);
+}

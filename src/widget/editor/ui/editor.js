@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import style from './style.module.css'
-import { ErrorMsg, Handle, HideBtn, Monaco } from '../slice'
+import { ErrorMsg, Handle, HideBtn, Monaco, Top } from '../slice'
 
 export const Editor = React.memo(() => {
   const editorRef = useRef(null)
@@ -9,6 +9,7 @@ export const Editor = React.memo(() => {
   return (
     <div className={style.wrapper}>
       <div className={style.editor} ref={editorRef} style={editorStyle}>
+        <Top />
         <Monaco />
       </div>
       <div className={style.side}>
