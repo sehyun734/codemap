@@ -11,7 +11,7 @@ export const Home = () => {
 
   return (
     <>
-      <h1 style={{ visibility: 'hidden', height: 0 }}>codiagram</h1>
+      <h1 style={{ visibility: 'hidden', height: 0 }}>codemap</h1>
       <div className={style.wrapper}>
         <Editor />
         <div className={style.right}>
